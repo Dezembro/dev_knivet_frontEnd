@@ -18,7 +18,7 @@ $senha = $_POST['senha'];
 $usuario =$_POST['usuario'];
 $emailRec =$_POST['emailRec'];
 //$senhaConfirm = $_POST['confirm'];
-
+/*
 $result =  $conn->query("SELECT id FROM usuario") ;
 $numMaior = 0;
 while ($row=$result->fetch_assoc()) {
@@ -27,6 +27,7 @@ while ($row=$result->fetch_assoc()) {
 print($numMaior);
 
 $numMaior = $numMaior + 1;
+*/
 
 /*
 if (condition) {
@@ -34,7 +35,7 @@ if (condition) {
 }
 */
 
- $sql = "INSERT INTO usuario(id, email,senha,usuario,emailRec) VALUES ('$numMaior','$email','$senha','$usuario','$emailRec')";
+ $sql = "INSERT INTO usuario(email,senha,usuario,emailRec) VALUES ('$email','$senha','$usuario','$emailRec')";
  if ($conn->query($sql)===true) {
  	echo "sucesso";
  	header("location:index.html");
