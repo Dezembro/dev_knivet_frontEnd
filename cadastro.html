@@ -98,7 +98,7 @@
         <header class="masthead text-center text-white d-flex" style="background-image: url(img/header2.jpg);">
           <div class="container my-auto" style="background-color: rgba(50,50,50,0.7);">
             <p class="text-faded mb-5" style="color: white; font-size: 400%; font-family: Poppins;"><br><br>Você está a um clique de <br><br><br><br>tornar seu dia mais produtivo </p>
-          <form class="" style="margin: 0 auto; width:400px;" method="post" action="#">
+          <form class="" style="margin: 0 auto; width:400px;" action="cadastro.php" method="post" >
 						<div class="form-group">
 
 
@@ -107,7 +107,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="usuario"  placeholder="Nome"/>
+									<input type="text" class="form-control" name="usuario" id="usuario"  placeholder="Nome"/>
 								</div>
 							</div>
 						</div>
@@ -127,7 +127,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="emailRec"  placeholder="Caso perca o acesso"/>
+									<input type="text" class="form-control" name="emailRec" id="emailRec"  placeholder="Caso perca o acesso"/>
 								</div>
 							</div>
 						</div>
@@ -137,7 +137,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="senha"  placeholder="Use uma senha forte"/>
+									<input type="password" class="form-control" name="senha" id="senha"  placeholder="Use uma senha forte"/>
 								</div>
 							</div>
 						</div>
@@ -147,13 +147,14 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="senhaConfirmacao"  placeholder="Digite a mesma senha para confirmar"/>
+									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Digite a mesma senha para confirmar"/>
 								</div>
 							</div>
 						</div>
 
-						<div class="form-group ">
-							<a href="" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Cadastre-se</a>
+						<div class="form-group "><!--
+							<a href="cadastro.php" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Cadastre-se</a>-->
+							<input class="btn btn-primary btn-lg btn-block login-button" type="submit" class="register" value="Cadastre-se">
 						</div>
 
 					</form>

@@ -12,7 +12,8 @@ if ($conn->connect_erro){
  }
 
 
-$login = $_POST['login'];
+$login = $_POST['email'];
+
 //$usuario = $_POST['usuario'];
 $senha = $_POST['senha'];
 
@@ -37,11 +38,11 @@ if ($cont <=0) {
 			$_SESSION['logado']=true;
 			$_SESSION['email'] = $row['email'];
 			
-			print ($_SESSION['email']);
+		//	print ($_SESSION['email']);
 			$_SESSION['usuario'] = $row['usuario'];
 
-			print($_SESSION['usuario']);
-			//header("location:indexEntrada.html");
+		//	print($_SESSION['usuario']);
+			header("location:index.html");
 		}
 	}
 }
