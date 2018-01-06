@@ -29,13 +29,13 @@
             </div>
             <div class="sidebar-wrapper" style="background-color: rgb(25,25,25);">
                 <ul class="nav">
-                    <li class="active">
+                    <li>
                         <a href="resumo.php">
                             <i class="material-icons">dashboard</i>
-                            <p>Resumo</p>
+                            <p style="color: white;">Resumo</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="disponiveis.php">
                             <i class="material-icons">library_books</i>
                             <p style="color: white;">Automatizações</p>
@@ -73,7 +73,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand"> Bem vindo usuário, <br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aqui está o resumo das suas informações </a>
+                        <a class="navbar-brand"> Bem vindo usuário, <br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aqui estão todas as integrações da Knivet </a>
                     </div>
                     <div class="collapse navbar-collapse">
 
@@ -83,151 +83,66 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
+
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                          <div class="card card-stats" >
+                              <!-- <div class="card-header" style="background-color: rgba(0,0,0,0.3);">
+                                  <img src="img/logo_grande.png">
+                              </div> --><br>
+                              <h3 class="title">&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-icons">autorenew</i>&nbsp;&nbsp;&nbsp;Automações</h3>
+                              <br>
+                              <p class="category">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abaixo está a lista de automações disponíveis</p>
+                              <div class="card-content">
+                              </div>
+                              <div class="card-footer">
+                                  <div class="stats">
+                                      <!-- <i class="material-icons">info</i> Aplicações ativas mas não configuradas também contam -->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
                         <div class="col-lg-4 col-md-4 col-sm-12">
                             <div class="card card-stats">
-                                <div class="card-header" data-background-color="blue">
-                                    <i class="material-icons">content_copy</i>
+                                <div class="card-header" style="background-color: rgba(25,25,25,0.17);" >
+                                    <img src="img/automacoes/escavador_trello.jpg">
                                 </div>
                                 <div class="card-content">
-                                    <p class="category">Automatizações ativas</p>
-                                    <h3 class="title">3/6
+                                    <p class="category">Automação </p>
+                                    <h3 class="title">Escavador -> Trello
                                         <!-- <small>GB</small> -->
                                     </h3>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">info</i> Aplicações ativas mas não configuradas também contam
+                                      <br><br>
+                                        <i class="material-icons">settings</i> <a  href="#" style="font-size: 150%; color: grey;">Configurar acesso as contas</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12">
                             <div class="card card-stats">
-                                <div class="card-header" data-background-color="blue">
-                                    <i class="material-icons">autorenew</i>
+                                <div class="card-header" style="background-color: rgba(25,25,25,0.17);">
+                                    <img src="img/automacoes/digesto_trello.jpg">
                                 </div>
                                 <div class="card-content">
-                                    <p class="category">Automatizações feitas</p>
-                                    <h3 class="title">106</h3>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">date_range</i> Nas últimas 24 horas
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <div class="card card-stats">
-                                <div class="card-header" data-background-color="blue">
-                                    <i class="material-icons">hourglass_empty</i>
-                                </div>
-                                <div class="card-content">
-                                    <p class="category">Horas salvas</p>
-                                    <h3 class="title">36
-                                        <small>horas</small>
+                                  <p class="category">Automação </p>
+                                  <h3 class="title">Digesto -> Trello
+                                        <!-- <small>GB</small> -->
                                     </h3>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">help</i> Cada automatiazação feita salva aproximadamente 10 min
+                                      <br><br>
+                                        <i class="material-icons">settings</i> <a  href="#" style="font-size: 150%; color: grey;">Configurar acesso as contas</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-12 ">
-                            <div class="card">
-                                <div class="card-header card-chart" data-background-color="black">
-                                    <div class="ct-chart" id="dailySalesChart"></div>
-                                </div>
-                                <div class="card-content">
-                                    <h4 class="title">Total de chamadas feitas</h4>
-                                    <p class="category">
-                                        <!-- <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p> -->
-                                        <p class="category">Dos últimos 7 dias</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">access_time</i> atualizado há 5 min
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12 ">
-                            <div class="card">
-                                <div class="card-header card-chart" data-background-color="black">
-                                    <div class="ct-chart" id="completedTasksChart"></div>
-                                </div>
-                                <div class="card-content">
-                                    <h4 class="title">Horas salvas</h4>
-                                    <p class="category">Nos últimos 7 dias</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">access_time</i> atualizado há 10 min
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12 ">
-                            <div class="card">
-                                <div class="card-header card-chart" data-background-color="black">
-                                    <div class="ct-chart" id="emailsSubscriptionChart"></div>
-                                </div>
-                                <div class="card-content">
-                                    <h4 class="title">Erros nas Automatizações</h4>
-                                    <p class="category">Erro ao receber as informações ou ao automatizar</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <i class="material-icons">access_time</i> atualizado há 5 horas
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12">
-                            <div class="card">
-                                <div class="card-header" data-background-color="blue">
-                                    <h4 class="title">Automatizações Ativas</h4>
-                                    <p class="category">Todas as automatizações ativas e seus status</p>
-                                </div>
-                                <div class="card-content table-responsive">
-                                    <table class="table table-hover">
-                                        <thead style="color: black">
-                                            <th>ID</th>
-                                            <th>Entrada de dados</th>
-                                            <th>Saída de dados</th>
-                                            <th>Chamadas feitas</th>
-                                            <th>Erros</th>
-                                            <th>Horas salvas</th>
-                                        </thead>
-                                        <tbody style="color: grey">
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Escavador</td>
-                                                <td>Trello</td>
-                                                <td>312</td>
-                                                <td style="color: red">0</td>
-                                                <td>10</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Digesto</td>
-                                                <td>Trello</td>
-                                                <td>226</td>
-                                                <td style="color: red">1</td>
-                                                <td>27</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+
                 </div>
             </div>
         </div>
