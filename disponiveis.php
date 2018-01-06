@@ -59,7 +59,7 @@
                         </a>
                     </li>
                     <li class="active-pro">
-                        <a href="index.html">
+                         <a href="sair.php">
                             <i class="material-icons">remove_circle</i>
                             <p style="color: white;">Sair</p>
                         </a>
