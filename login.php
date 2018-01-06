@@ -39,10 +39,10 @@ if ($cont <=0) {
 			$_SESSION['email'] = $row['email'];
 			
 		//	print ($_SESSION['email']);
-			$_SESSION['usuario'] = $row['usuario'];
+			$_SESSION['nome'] = $row['usuario'];
 
 		//	print($_SESSION['usuario']);
-			header("location:index.html");
+			header("location:resumo.php");
 		}
 	}
 }
