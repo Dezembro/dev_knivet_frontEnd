@@ -98,7 +98,7 @@
         <header class="masthead text-center text-white d-flex" style="background-image: url(img/header2.jpg);">
           <div class="container my-auto" style="background-color: rgba(50,50,50,0.7);">
             <p class="text-faded mb-5" style="color: white; font-size: 400%; font-family: Poppins;"><br><br>Você está a um clique de <br><br><br><br>tornar seu dia mais produtivo </p>
-          <form class="" style="margin: 0 auto; width:400px;" action="cadastro.php" method="post" >
+          <form name="form" onsubmit="return validateForm()" class="" style="margin: 0 auto; width:400px;" action="cadastro.php" method="post" >
 						<div class="form-group">
 
 
@@ -107,7 +107,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="usuario" id="usuario"  placeholder="Nome"/>
+									<input type="text" class="form-control" name="usuario" id="usuario"  placeholder="Nome" onchange="return validateForm()"/>
 								</div>
 							</div>
 						</div>
@@ -117,7 +117,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="email@email.com"/>
+									<input type="text" class="form-control" name="email" id="email"  placeholder="email@email.com" onchange="return validateForm()"/>
 								</div>
 							</div>
 						</div>
@@ -127,7 +127,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="emailRec" id="emailRec"  placeholder="Caso perca o acesso"/>
+									<input type="text" class="form-control" name="emailRec" id="emailRec"  placeholder="Caso perca o acesso" onchange="return validateForm()"/>
 								</div>
 							</div>
 						</div>
@@ -137,7 +137,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="senha" id="senha"  placeholder="Use uma senha forte"/>
+									<input type="password" class="form-control" name="senha" id="senha"  placeholder="Use uma senha forte" onchange="return validateForm()"/>
 								</div>
 							</div>
 						</div>
@@ -147,19 +147,71 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Digite a mesma senha para confirmar"/>
+									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Digite a mesma senha para confirmar" onchange="return validateForm()"/>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group "><!--
 							<a href="cadastro.php" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Cadastre-se</a>-->
-							<input class="btn btn-primary btn-lg btn-block login-button" type="submit" class="register" value="Cadastre-se">
+							<input id="cadastrar"class="btn btn-primary btn-lg btn-block login-button" type="submit" class="register" value="Cadastre-se" disabled="true" style="background-color: grey" onclick="return validateFormEnviar()">
+              <br>
+              <a id="erro"></a>
 						</div>
 
 					</form>
         </div>
         </header>
+
+
+        <script type="text/javascript">
+        function validateFormEnviar()
+        {
+            var a=document.forms["form"]["usuario"].value;
+            var b=document.forms["form"]["email"].value;
+            var c=document.forms["form"]["emailRec"].value;
+            var d=document.forms["form"]["senha"].value;
+            var e=document.forms["form"]["confirm"].value;
+            if (!b.contains("@") || !c.contains("@"))
+            {
+                // alert("Please Fill All Required Field");
+                document.getElementById("cadastrar").disabled = true;
+                document.getElementById("erro").textContent="Digite o email corretamente";
+                return 0;
+            }
+            else
+            document.getElementById("cadastrar").disabled = false;
+            if (d != e)
+            {
+                // alert("Please Fill All Required Field");
+                document.getElementById("cadastrar").disabled = true;
+                document.getElementById("erro").textContent="Senhas diferentes";
+                return 0;
+            }
+            else
+            document.getElementById("cadastrar").disabled = false;
+        }
+
+
+    function validateForm()
+    {
+        var a=document.forms["form"]["usuario"].value;
+        var b=document.forms["form"]["email"].value;
+        var c=document.forms["form"]["emailRec"].value;
+        var d=document.forms["form"]["senha"].value;
+        var e=document.forms["form"]["confirm"].value;
+        if (a==null || a=="",b==null || b=="",c==null || c=="",d==null || d=="" || e==null || e=="")
+        {
+            // alert("Please Fill All Required Field");
+            document.getElementById("cadastrar").disabled = true;
+            return false;
+        }
+        else
+        document.getElementById("cadastrar").disabled = false;
+        {
+        }
+    }
+</script>
 
 
         <!-- Bootstrap core JavaScript -->

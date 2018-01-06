@@ -2,7 +2,7 @@
  error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
  session_start();
 ?>
-<?php  if(isset($_SESSION['logado'])):    ?> 
+<?php  if(isset($_SESSION['logado'])):    ?>
 
 <!doctype html>
 <html lang="en">
@@ -543,7 +543,7 @@ demo = {
 </script>
 
 </html>
-<?php endif; 
+<?php endif;
 header("location:index.html");
 
 ?>

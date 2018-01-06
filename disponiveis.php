@@ -102,44 +102,114 @@
                           </div>
                       </div>
 
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <div class="card card-stats">
-                                <div class="card-header" style="background-color: rgba(25,25,25,0.17);" >
-                                    <img src="img/automacoes/escavador_trello.jpg">
-                                </div>
-                                <div class="card-content">
-                                    <p class="category">Automação </p>
-                                    <h3 class="title">Escavador -> Trello
-                                        <!-- <small>GB</small> -->
-                                    </h3>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                      <br><br>
-                                        <i class="material-icons">settings</i> <a  href="#" style="font-size: 150%; color: grey;">Configurar acesso as contas</a>
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                          <div class="card card-stats">
+                              <div class="card-header" style="background-color: rgba(25,25,25,0.17);">
+                                  <img src="img/automacoes/escavador_trello.jpg">
+                              </div>
+                              <div class="card-content">
+                                <p class="category">Automação </p>
+                                <h3 class="title">Escavador <br>-><br> Trello
+                                      <!-- <small>GB</small> -->
+                                  </h3>
+                              </div>
+                              <div class="card-footer">
+                                <td>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input onclick="checkEscavador_trello()" id="escavador_trello_cb" type="checkbox" name="optionsCheckboxes">
+                                        </label>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <div class="card card-stats">
-                                <div class="card-header" style="background-color: rgba(25,25,25,0.17);">
-                                    <img src="img/automacoes/digesto_trello.jpg">
-                                </div>
-                                <div class="card-content">
-                                  <p class="category">Automação </p>
-                                  <h3 class="title">Digesto -> Trello
-                                        <!-- <small>GB</small> -->
-                                    </h3>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                      <br><br>
-                                        <i class="material-icons">settings</i> <a  href="#" style="font-size: 150%; color: grey;">Configurar acesso as contas</a>
+                                </td>
+                                <td>Ativar automação</td>
+                                <br>
+                                  <div class="stats">
+                                    <br><br>
+                                      <a id="config_escavador_trello" href="#" onclick="escavador_trello()" style="font-size: 150%; color: grey; display: none;">Configurar acesso as contas</a>
+
+                                  </div>
+                              </div>
+                              <div class="card-footer" id="escavador_trello" style="display: none">
+                                    <br>
+                                    <a href="#" style="font-size: 150%; color: grey;" onclick="escavador1()" style="font-size: 150%; color: grey;">Escavador</a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="#" style="font-size: 150%; color: grey;" onclick="trello2()" style="font-size: 150%; color: grey;">Trello</a>
+                                    <br>
+                                  <div class="stats" style="display: none" id="escavador">
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="text" class="form-control" name="email_escavador" placeholder="Digite o email da sua conta Escavador"/>
+                                    <br>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="password" class="form-control" name="senha_escavador" placeholder="Digite a senha da sua conta Escavador"/>
+                                  </div>
+                                  <div class="stats" style="display: none" id="trello1">
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="text" class="form-control" name="email_trello" placeholder="Digite o email da sua conta Trello"/>
+                                    <br>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="password" class="form-control" name="senha_trello" placeholder="Digite a senha da sua conta Trello"/>
+                                  </div>
+                              </div>
+
+
+                          </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12">
+                          <div class="card card-stats">
+                              <div class="card-header" style="background-color: rgba(25,25,25,0.17);">
+                                  <img src="img/automacoes/digesto_trello.jpg">
+                              </div>
+                              <div class="card-content">
+                                <p class="category">Automação </p>
+                                <h3 class="title">Digesto <br>-><br> Trello
+                                      <!-- <small>GB</small> -->
+                                  </h3>
+                              </div>
+                              <div class="card-footer">
+                                <td>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input onclick="checkDigesto_trello()" id="digesto_trello_cb" type="checkbox" name="optionsCheckboxes">
+                                        </label>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                                </td>
+                                <td>Ativar automação</td>
+                                <br>
+                                  <div class="stats">
+                                    <br><br>
+                                      <a id="config_digesto_trello" href="#" onclick="digesto_trello()" style="font-size: 150%; color: grey; display: none;">Configurar acesso as contas</a>
+
+                                  </div>
+                              </div>
+                              <div class="card-footer" id="digesto_trello" style="display: none">
+                                    <br>
+                                    <a href="#" style="font-size: 150%; color: grey;" onclick="digesto1()" style="font-size: 150%; color: grey;">Digesto</a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="#" style="font-size: 150%; color: grey;" onclick="trello1()" style="font-size: 150%; color: grey;">Trello</a>
+                                    <br>
+                                  <div class="stats" style="display: none" id="digesto">
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="text" class="form-control" name="email_digesto" placeholder="Digite o email da sua conta Digesto"/>
+                                    <br>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="password" class="form-control" name="senha_digesto" placeholder="Digite a senha da sua conta Digesto"/>
+                                  </div>
+                                  <div class="stats" style="display: none" id="trello2">
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="text" class="form-control" name="email_digesto" placeholder="Digite o email da sua conta Trello"/>
+                                    <br>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="password" class="form-control" name="senha_digesto" placeholder="Digite a senha da sua conta Trello"/>
+                                  </div>
+                              </div>
+
+
+                          </div>
+                      </div>
                     </div>
 
 
@@ -148,6 +218,101 @@
         </div>
     </div>
 </body>
+
+<script>
+
+function checkDigesto_trello()
+{
+    var x = document.getElementById("digesto_trello_cb").checked
+    var y = document.getElementById("config_digesto_trello");
+    if(x == true)
+    {
+      y.style.display = "block";
+    }
+    else
+    {
+      y.style.display = "none";
+    }
+}
+
+function digesto_trello() {
+    var x = document.getElementById("digesto_trello");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+function digesto1() {
+    var x = document.getElementById("digesto");
+    var y = document.getElementById("trello2");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.display = "none";
+    } else {
+        x.style.display = "none";
+        y.style.display = "none";
+    }
+}
+function trello1() {
+    var x = document.getElementById("trello2");
+    var y = document.getElementById("digesto");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      y.style.display = "none";
+    } else {
+      x.style.display = "none";
+      y.style.display = "none";
+    }
+}
+//ACONTECE
+function checkEscavador_trello()
+{
+    var x = document.getElementById("escavador_trello_cb").checked
+    var y = document.getElementById("config_escavador_trello");
+    if(x == true)
+    {
+      y.style.display = "block";
+    }
+    else
+    {
+      y.style.display = "none";
+    }
+}
+
+function escavador_trello() {
+    var x = document.getElementById("escavador_trello");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+function escavador1() {
+    var x = document.getElementById("escavador");
+    var y = document.getElementById("trello1");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.display = "none";
+    } else {
+        x.style.display = "none";
+        y.style.display = "none";
+    }
+}
+function trello2() {
+    var x = document.getElementById("trello1");
+    var y = document.getElementById("escavador");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      y.style.display = "none";
+    } else {
+      x.style.display = "none";
+      y.style.display = "none";
+    }
+}
+
+</script>
+
 <!--   Core JS Files   -->
 <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
