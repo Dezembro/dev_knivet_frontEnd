@@ -102,7 +102,7 @@
                           </div>
                       </div>
 
-                      <div class="col-lg-4 col-md-4 col-sm-12">
+                      <div class="col-lg-4 col-md-6 col-sm-12">
                           <div class="card card-stats">
                               <div class="card-header" style="background-color: rgba(25,25,25,0.17);">
                                   <img src="img/automacoes/escavador_trello.jpg">
@@ -143,20 +143,23 @@
                                     <br>
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
                                     <input style="width: 300px" type="password" class="form-control" name="senha_escavador" placeholder="Digite a senha da sua conta Escavador"/>
+                                    <input id="escavador1" class="btn btn-primary btn-lg btn-block login-button" type="submit" class="register" value="Salvar" disabled="true" style="background-color: rgb(0,225,205)">
                                   </div>
                                   <div class="stats" style="display: none" id="trello1">
-                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
-                                    <input style="width: 300px" type="text" class="form-control" name="email_trello" placeholder="Digite o email da sua conta Trello"/>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Token:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="text" class="form-control" name="email_trello" placeholder="Digite o token da sua conta Trello"/>
                                     <br>
-                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
-                                    <input style="width: 300px" type="password" class="form-control" name="senha_trello" placeholder="Digite a senha da sua conta Trello"/>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Key:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="password" class="form-control" name="senha_trello" placeholder="Digite a key da sua conta Trello"/>
+                                    <input id="trello1" class="btn btn-primary btn-lg btn-block login-button" type="submit" class="register" value="Salvar" disabled="true" style="background-color: rgb(0,225,205)">
                                   </div>
+
                               </div>
 
 
                           </div>
                       </div>
-                      <div class="col-lg-4 col-md-4 col-sm-12">
+                      <div class="col-lg-4 col-md-6 col-sm-12">
                           <div class="card card-stats">
                               <div class="card-header" style="background-color: rgba(25,25,25,0.17);">
                                   <img src="img/automacoes/digesto_trello.jpg">
@@ -192,18 +195,26 @@
                                     <a href="#" style="font-size: 150%; color: grey;" onclick="trello1()" style="font-size: 150%; color: grey;">Trello</a>
                                     <br>
                                   <div class="stats" style="display: none" id="digesto">
-                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
-                                    <input style="width: 300px" type="text" class="form-control" name="email_digesto" placeholder="Digite o email da sua conta Digesto"/>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Token de usuário:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="text" class="form-control" name="email_digesto" placeholder="Digite o token de usuario da sua conta Digesto"/>
+                                    <a style="font-size: 120%; color: grey;"><br>Acesse esse <a style="font-size: 120%; color: red;" href="https://op.digesto.com.br/#/companyadmin/api">link</a> e copie seu Token de usuário:<br></a>&nbsp;&nbsp;
+
                                     <br>
-                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
-                                    <input style="width: 300px" type="password" class="form-control" name="senha_digesto" placeholder="Digite a senha da sua conta Digesto"/>
+                                    <br>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Configure a URL WebHook para a URL da Knivet:</a>&nbsp;&nbsp;
+                                    <a style="font-size: 120%; color: grey;"><br><br>Acesse esse <a style="font-size: 120%; color: red;" href="https://op.digesto.com.br/#/companyadmin/api">link</a> copie nosso URL abaixo e cole no campo URL na aba WebHook e clique em salvar:</a>&nbsp;&nbsp;
+                                    <!-- <input style="width: 300px" type="password" class="form-control" name="senha_digesto" placeholder="Digite a senha da sua conta Digesto"/> -->
+                                    <br><i class="material-icons"></i><a style="font-size: 150%; color: grey;"><br>URL: <a style="font-size: 200%; color: red;">https://knivet.com.br</a></a>&nbsp;&nbsp;<br><br>
+                                    <input id="digesto1" class="btn btn-primary btn-lg btn-block login-button" type="submit" class="register" value="Salvar" disabled="true" style="background-color: rgb(0,225,205)">
+
                                   </div>
                                   <div class="stats" style="display: none" id="trello2">
-                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
-                                    <input style="width: 300px" type="text" class="form-control" name="email_digesto" placeholder="Digite o email da sua conta Trello"/>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Token:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="text" class="form-control" name="email_digesto" placeholder="Digite o token da sua conta Trello"/>
                                     <br>
-                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
-                                    <input style="width: 300px" type="password" class="form-control" name="senha_digesto" placeholder="Digite a senha da sua conta Trello"/>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Key:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="password" class="form-control" name="senha_digesto" placeholder="Digite a key da sua conta Trello"/>
+                                    <input id="trello2" class="btn btn-primary btn-lg btn-block login-button" type="submit" class="register" value="Salvar" disabled="true" style="background-color: rgb(0,225,205)">
                                   </div>
                               </div>
 
@@ -225,18 +236,22 @@ function checkDigesto_trello()
 {
     var x = document.getElementById("digesto_trello_cb").checked
     var y = document.getElementById("config_digesto_trello");
+    var z = document.getElementById("digesto_trello");
     if(x == true)
     {
       y.style.display = "block";
+      z.style.display = "block";
     }
     else
     {
       y.style.display = "none";
+      z.style.display = "none";
     }
 }
 
 function digesto_trello() {
-    var x = document.getElementById("digesto_trello");
+
+    var z = document.getElementById("digesto_trello");
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
@@ -270,13 +285,16 @@ function checkEscavador_trello()
 {
     var x = document.getElementById("escavador_trello_cb").checked
     var y = document.getElementById("config_escavador_trello");
+    var z = document.getElementById("escavador_trello");
     if(x == true)
     {
       y.style.display = "block";
+      z.style.display = "block";
     }
     else
     {
       y.style.display = "none";
+      z.style.display = "none";
     }
 }
 
