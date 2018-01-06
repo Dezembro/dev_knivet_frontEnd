@@ -1,3 +1,8 @@
+<?php
+ error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
+ session_start();
+?>
+<?php  if(isset($_SESSION['logado'])):    ?>
 <!doctype html>
 <html lang="en">
 
@@ -73,7 +78,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand"> Bem vindo usuário, <br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aqui estão todas as integrações da Knivet </a>
+                        <a class="navbar-brand"> Bem vindo <?php echo( $_SESSION['nome']);  ?>, <br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aqui estão todas as integrações da Knivet </a>
                     </div>
                     <div class="collapse navbar-collapse">
 
@@ -633,3 +638,7 @@ demo = {
 </script>
 
 </html>
+<?php endif;
+header("location:index.html");
+
+?>
