@@ -58,8 +58,9 @@ mail($to, $subject, $message, $headers);
  if ($conn->query($sql)===true) {
  	echo "sucesso";
  	$_SESSION['logado']=true;
- 	$_SESSION['email'] = $row['email'];
-	$_SESSION['nome'] = $row['usuario'];
+ 
+ 	$_SESSION['email'] = $email;
+	$_SESSION['nome'] = $usuario;
 
 	header("location:resumo.php");
 
