@@ -17,7 +17,7 @@ $login = $_POST['email'];
 //$usuario = $_POST['usuario'];
 $senha = $_POST['senha'];
 
- 
+
 
 
 $result =  $conn->query("SELECT * FROM usuario WHERE email = '$login' /*OR usuario = '$usuario'*/ AND senha ='$senha' ") ;
@@ -37,7 +37,7 @@ if ($cont <=0) {
 
 			$_SESSION['logado']=true;
 			$_SESSION['email'] = $row['email'];
-			
+
 		//	print ($_SESSION['email']);
 			$_SESSION['nome'] = $row['usuario'];
 
