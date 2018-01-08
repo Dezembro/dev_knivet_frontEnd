@@ -83,7 +83,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand"> Bem vindo  <?php echo( $_SESSION['nome']);  ?>, <br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aqui está o resumo das suas informações </a>
+                        <a class="navbar-brand"> Bem vindo <?php echo( $_SESSION['nome']);  ?>, <br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acompanhe nesta tela o resumo de sua produtividade com a Knivet: </a>
                     </div>
                     <div class="collapse navbar-collapse">
 
@@ -111,7 +111,7 @@
                                             $aux = $_SESSION['email'];
                                             $result =  $conn->query("SELECT * FROM usuario WHERE email = '$aux' ");
 
-                                            
+
 
                                             $cont = mysqli_num_rows($result);
                                             if ($cont <=0) {
@@ -125,7 +125,7 @@
                                                        echo ( $row['automacoes_ativas']."/".$row['automacoes_max']);
                                                     }
                                                 }
-                                            }                        
+                                            }
                                         ?>
 
 
@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">info</i> Aplicações ativas mas não configuradas também contam
+                                        <i class="material-icons">info</i> Número de automações habilitadas
                                     </div>
                                 </div>
                             </div>
@@ -145,10 +145,10 @@
                                     <i class="material-icons">autorenew</i>
                                 </div>
                                 <div class="card-content">
-                                    <p class="category">Automatizações feitas</p>
+                                    <p class="category">Eventos realizados</p>
                                     <h3 class="title">
 
-                                        <?php 
+                                        <?php
                                             echo($_SESSION['aut_feitas']);
                                          ?>
 
@@ -156,7 +156,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">date_range</i> do dia 06/Jan
+                                        <i class="material-icons">date_range</i> desde a seua primeira automação
                                     </div>
                                 </div>
                             </div>
@@ -167,10 +167,10 @@
                                     <i class="material-icons">hourglass_empty</i>
                                 </div>
                                 <div class="card-content">
-                                    <p class="category">Horas salvas</p>
+                                    <p class="category">Tempo Economizado</p>
                                     <h3 class="title">
 
-                                        <?php 
+                                        <?php
                                             echo($_SESSION['horas_salvas']);
                                          ?>
 
@@ -179,48 +179,48 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">help</i> Cada automatiazação feita salva aproximadamente 10 min
+                                        <i class="material-icons">help</i> Minutos totais economizados
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-md-12 ">
+                        <div class="col-lg-6 col-md-12 ">
                             <div class="card">
                                 <div class="card-header card-chart" data-background-color="black">
                                     <div class="ct-chart" id="dailySalesChart"></div>
                                 </div>
                                 <div class="card-content">
-                                    <h4 class="title">Total de chamadas feitas</h4>
+                                    <h4 class="title">Total de eventos feitos</h4>
                                     <p class="category">
                                         <!-- <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p> -->
-                                        <p class="category">Dos últimos 7 dias</p>
+                                        <p class="category">Evolução diária</p>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">access_time</i> atualizado há 5 min
+                                        <!-- <i class="material-icons">access_time</i> atualizado há 5 min -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 ">
+                        <div class="col-lg-6 col-md-12 ">
                             <div class="card">
                                 <div class="card-header card-chart" data-background-color="black">
                                     <div class="ct-chart" id="completedTasksChart"></div>
                                 </div>
                                 <div class="card-content">
-                                    <h4 class="title">Horas salvas</h4>
-                                    <p class="category">Nos últimos 7 dias</p>
+                                    <h4 class="title">Tempo economizado</h4>
+                                    <p class="category">Evolução diária</p>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">access_time</i> atualizado há 10 min
+                                        <!-- <i class="material-icons">access_time</i> atualizado há 10 min -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 ">
+                        <!-- <div class="col-lg-4 col-md-12 ">
                             <div class="card">
                                 <div class="card-header card-chart" data-background-color="black">
                                     <div class="ct-chart" id="emailsSubscriptionChart"></div>
@@ -235,7 +235,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="row">
                         <div class="col-lg-12 col-md-12">

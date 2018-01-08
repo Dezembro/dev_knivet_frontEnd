@@ -99,11 +99,6 @@
                               <p class="category">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abaixo está a lista de automações disponíveis</p>
                               <div class="card-content">
                               </div>
-                              <div class="card-footer">
-                                  <div class="stats">
-                                      <!-- <i class="material-icons">info</i> Aplicações ativas mas não configuradas também contam -->
-                                  </div>
-                              </div>
                           </div>
                       </div>
 
@@ -118,29 +113,27 @@
                                       <!-- <small>GB</small> -->
                                   </h3>
                               </div>
-                              <div class="card-footer">
+                              <div class="card-footer" >
                                 <td>
-                                    <div class="checkbox">
+                                    <div class="checkbox" >
                                         <label>
-                                            <input onclick="checkEscavador_trello()" id="escavador_trello_cb" type="checkbox" name="optionsCheckboxes">
+                                            <input onclick="checkEscavador_trello()" id="escavador_trello_cb" type="checkbox" name="optionsCheckboxes" bgcolor=#27B9D2>
                                         </label>
                                     </div>
                                 </td>
-                                <td>Ativar automação</td>
+                                <td bgcolor="#27B9D2">Ativar automação</td>
                                 <br>
                                   <div class="stats">
                                     <br><br>
-                                      <a id="config_escavador_trello" href="#" onclick="escavador_trello()" style="font-size: 150%; color: grey; display: none;">Configurar acesso as contas</a>
+                                      <a id="config_escavador_trello" href="#" onclick="escavador_trello()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2; display: none"><i class="material-icons" style="font-size: 210%; color: grey;">settings</i></a>
 
                                   </div>
                               </div>
                               <div class="card-footer" id="escavador_trello" style="display: none">
                                     <br>
-                                    <a href="#" style="font-size: 150%; color: grey;" onclick="escavador1()" style="font-size: 150%; color: grey;">Escavador</a>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="#" style="font-size: 150%; color: grey;" onclick="trello2()" style="font-size: 150%; color: grey;">Trello</a>
+                                    <a href="#" onclick="escavador1()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Escavador </a>
+                                    <i class="material-icons" style="font-size: 150%; color: grey;">autorenew</i>
+                                    <a href="#" onclick="trello2()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Trello</a>
                                     <br>
                                   <div class="stats" style="display: none" id="escavador">
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
@@ -184,17 +177,15 @@
                                 <br>
                                   <div class="stats">
                                     <br><br>
-                                      <a id="config_digesto_trello" href="#" onclick="digesto_trello()" style="font-size: 150%; color: grey; display: none;">Configurar acesso as contas</a>
+                                      <a id="config_digesto_trello" href="#" onclick="digesto_trello()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2; display: none"><i class="material-icons" style="font-size: 210%; color: grey;">settings</i></a>
 
                                   </div>
                               </div>
                               <div class="card-footer" id="digesto_trello" style="display: none">
                                     <br>
-                                    <a href="#" style="font-size: 150%; color: grey;" onclick="digesto1()" style="font-size: 150%; color: grey;">Digesto</a>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="#" style="font-size: 150%; color: grey;" onclick="trello1()" style="font-size: 150%; color: grey;">Trello</a>
+                                    <a href="#" onclick="digesto1()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Digesto</a>
+                                    <i class="material-icons" style="font-size: 150%; color: grey;">autorenew</i>
+                                    <a href="#" onclick="trello1()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Trello</a>
                                     <br>
                                   <div class="stats" style="display: none" id="digesto">
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
