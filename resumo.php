@@ -12,7 +12,9 @@
     <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png" />
     <link rel="icon" type="image/png" href="img/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Dashboard</title>
+     <title>Knivet - Seja mais produtivo</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <!-- Bootstrap core CSS     -->
@@ -98,7 +100,35 @@
                                 </div>
                                 <div class="card-content">
                                     <p class="category">Automatizações ativas</p>
-                                    <h3 class="title">3/6
+                                    <h3 class="title"><!--3/6-->
+
+                                        <?php
+                                            $conn = new  mysqli("mysql762.umbler.com:41890","knivet","knivet2017","knivet");
+                                            if ($conn->connect_erro){
+                                                die($conn->connect_erro);
+                                                echo "Erro ao conectar";
+                                            }
+                                            $aux = $_SESSION['email'];
+                                            $result =  $conn->query("SELECT * FROM usuario WHERE email = '$aux' ");
+
+                                            
+
+                                            $cont = mysqli_num_rows($result);
+                                            if ($cont <=0) {
+                                                 echo ("erro");
+                                            }else{
+                                                // echo "conectado";
+                                                if ($cont == 1) {
+                                                    while ($row=$result->fetch_assoc()) {
+                                                        $_SESSION['aut_feitas'] = $row['num_automatizacoes_total'];
+                                                        $_SESSION['horas_salvas'] = $row['minutos_salvo_total'] / 60;
+                                                       echo ( $row['automacoes_ativas']."/".$row['automacoes_max']);
+                                                    }
+                                                }
+                                            }                        
+                                        ?>
+
+
                                         <!-- <small>GB</small> -->
                                     </h3>
                                 </div>
@@ -116,7 +146,13 @@
                                 </div>
                                 <div class="card-content">
                                     <p class="category">Automatizações feitas</p>
-                                    <h3 class="title">106</h3>
+                                    <h3 class="title">
+
+                                        <?php 
+                                            echo($_SESSION['aut_feitas']);
+                                         ?>
+
+                                    </h3>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
@@ -132,7 +168,12 @@
                                 </div>
                                 <div class="card-content">
                                     <p class="category">Horas salvas</p>
-                                    <h3 class="title">36
+                                    <h3 class="title">
+
+                                        <?php 
+                                            echo($_SESSION['horas_salvas']);
+                                         ?>
+
                                         <small>horas</small>
                                     </h3>
                                 </div>
