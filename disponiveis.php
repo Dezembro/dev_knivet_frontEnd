@@ -3,6 +3,17 @@
  session_start();
 ?>
 <?php  if(isset($_SESSION['logado'])):    ?>
+
+<?php endif;
+
+if (!($_SESSION['logado'])) {
+    
+   header("location:index.html");
+}
+//header("location:index.html");
+//Warning: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\Knivet\resumo.php:86) in C:\xampp\htdocs\Knivet\resumo.php on line 587
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -12,6 +23,9 @@
     <link rel="icon" type="image/png" href="img/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Knivet - Seja mais produtivo</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <!-- Bootstrap core CSS     -->
@@ -610,8 +624,4 @@ demo = {
 
 </script>
 
-</html>
-<?php endif;
-header("location:index.html");
 
-?>
