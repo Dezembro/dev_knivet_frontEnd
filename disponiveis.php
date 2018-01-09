@@ -7,7 +7,7 @@
 <?php endif;
 
 if (!($_SESSION['logado'])) {
-    
+
    header("location:index.html");
 }
 //header("location:index.html");
@@ -139,7 +139,7 @@ if (!($_SESSION['logado'])) {
                                 <br>
                                   <div class="stats">
                                     <br><br>
-                                      <a id="config_escavador_trello" href="#" onclick="escavador_trello()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2; display: none"><i class="material-icons" style="font-size: 210%; color: grey;">settings</i></a>
+                                      <a id="config_escavador_trello" href="#" onclick="escavador_trello()" style="padding: 10px 16px; border-radius: 15px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2; display: none"><i class="material-icons" style="font-size: 200%; color: grey;">settings</i>Configurações de conta</a>
 
                                   </div>
                               </div>
@@ -623,5 +623,3 @@ demo = {
 }
 
 </script>
-
-
