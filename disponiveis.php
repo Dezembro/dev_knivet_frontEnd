@@ -135,7 +135,9 @@ if (!($_SESSION['logado'])) {
                                         </label>
                                     </div>
                                 </td>
+
                                 <td bgcolor="#27B9D2">Ativar automação</td>
+
                                 <br>
                                   <div class="stats">
                                     <br><br>
@@ -148,24 +150,43 @@ if (!($_SESSION['logado'])) {
                                     <a href="#" onclick="escavador1()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Escavador </a>
                                     <i class="material-icons" style="font-size: 150%; color: grey;">autorenew</i>
                                     <a href="#" onclick="trello2()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Trello</a>
-                                    <br>
+                                    <br>  <br>  <br>
+                                  
+                                
                                   <div class="stats" style="display: none" id="escavador">
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
                                     <input style="width: 300px" type="text" class="form-control" name="email_escavador" placeholder="Digite o email da sua conta Escavador"/>
                                     <br>
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
                                     <input style="width: 300px" type="password" class="form-control" name="senha_escavador" placeholder="Digite a senha da sua conta Escavador"/>
+                                    <br>
+
+                                    <td bgcolor="#27B9D2"> <font size="4"> Deseja ter antigos monitoramentos no trello? </font>  </style></td>
+                                     
+                                    <div class="checkbox" >
+                                        <label>
+                                            <input id="checkAntigasMovimentacoes" type="checkbox" name="checkAntigasMovimentacoes" bgcolor=#27B9D2>
+                                        </label>
+                                    </div>
+
                                   </div>
+                                  
+
                                   <div class="stats" style="display: none" id="trello1">
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
                                     <input style="width: 300px" type="text" class="form-control" name="email_trello" placeholder="Digite o email da sua conta Trello"/>
                                     <br>
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
                                     <input style="width: 300px" type="password" class="form-control" name="senha_trello" placeholder="Digite a senha da sua conta Trello"/>
+
                                   </div>
+<!--
+                                      <div class="form-group">
+                                         <!--     <button type="submit" style="background-color: rgba(88,155,152,0.9)" class="btn btn-primary btn-block">Entrar</button>-->
+                                      <!--    <input class="btn btn-primary btn-block" type="submit" style="background-color: rgba(88,155,152,0.9)" class="btn btn-primary btn-block" value="Enviar"> <!-- fundo button 
+                                           </div>
+                                           -->
                               </div>
-
-
                           </div>
                       </div>
                       <div class="col-lg-4 col-md-4 col-sm-12">
