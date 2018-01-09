@@ -7,7 +7,7 @@
 <?php endif;
 
 if (!($_SESSION['logado'])) {
-    
+
    header("location:index.html");
 }
 //header("location:index.html");
@@ -113,6 +113,14 @@ if (!($_SESSION['logado'])) {
                                     <h3 class="title"><!--3/6-->
 
                                         <?php
+
+                                            // $_SESSION['dia'] = jddayofweek ( cal_to_jd(CAL_GREGORIAN, date("m"),date("d"), date("Y")) , 1 );
+
+                                            date_default_timezone_set('America/Sao_Paulo');
+                                            $_SESSION['dia'] = date("l");
+                                            $_SESSION['diaN'] = date("d");
+                                            $_SESSION['mes'] = date("m");
+
                                             $conn = new  mysqli("mysql762.umbler.com:41890","knivet","knivet2017","knivet");
                                             if ($conn->connect_erro){
                                                 die($conn->connect_erro);
@@ -131,15 +139,107 @@ if (!($_SESSION['logado'])) {
                                                 if ($cont == 1) {
                                                     while ($row=$result->fetch_assoc()) {
                                                         $_SESSION['aut_feitas'] = $row['num_automatizacoes_total'];
-                                                        $_SESSION['horas_salvas'] = $row['minutos_salvo_total'] / 60;
-                                                       echo ( $row['automacoes_ativas']."/".$row['automacoes_max']);
+                                                        $_SESSION['horas_salvas'] = $row['minutos_salvos_total'];
+                                                        $id_usuario = $row['id'];
+                                                      echo ( $row['automacoes_ativas']/*."/".$row['automacoes_max']*/);
                                                     }
                                                 }
                                             }
+
+                                            $result2 =  $conn->query("SELECT * FROM chamadas_feitas_temp WHERE id_usuario = '$id_usuario' ");
+
+
+
+                                            $cont = mysqli_num_rows($result2);
+                                            if ($cont <=0) {
+                                                 // echo ("Sem automações ativas");
+                                            }else{
+                                                // echo "conectado";
+                                                if ($cont == 1) {
+                                                    while ($row=$result2->fetch_assoc()) {
+                                                        $_SESSION['vl1'] = $row['vl1'];
+                                                        $_SESSION['vl2'] = $row['vl2'];
+                                                        $_SESSION['vl3'] = $row['vl3'];
+                                                        $_SESSION['vl4'] = $row['vl4'];
+                                                        $_SESSION['vl5'] = $row['vl5'];
+                                                        $_SESSION['vl6'] = $row['vl6'];
+                                                        $_SESSION['vl7'] = $row['vl7'];
+                                                    }
+                                                }
+                                            }
+
+                                            $result3 =  $conn->query("SELECT * FROM horas_salvas_temp WHERE id_usuario = '$id_usuario' ");
+
+
+
+                                            $cont = mysqli_num_rows($result3);
+                                            if ($cont <=0) {
+                                                 // echo ("Sem automações ativas");
+                                            }else{
+                                                // echo "conectado";
+                                                if ($cont == 1) {
+                                                    while ($row=$result3->fetch_assoc()) {
+                                                        $_SESSION['vl1T'] = $row['vl1'];
+                                                        $_SESSION['vl2T'] = $row['vl2'];
+                                                        $_SESSION['vl3T'] = $row['vl3'];
+                                                        $_SESSION['vl4T'] = $row['vl4'];
+                                                        $_SESSION['vl5T'] = $row['vl5'];
+                                                        $_SESSION['vl6T'] = $row['vl6'];
+                                                        $_SESSION['vl7T'] = $row['vl7'];
+                                                    }
+                                                }
+                                            }
+
+                                            $result4 =  $conn->query("SELECT * FROM automacoes_ativas WHERE id_usuario = '18' ");
+
+
+
+                                            $cont = mysqli_num_rows($result4);
+                                            $id_automacoes = array();
+                                            if ($cont <=0)
+                                            {
+                                            }
+                                            else
+                                            {
+
+                                                while ($row=$result4->fetch_assoc())
+                                                {
+                                                        $id_automacoes[] = $row['id_automacao'];
+                                                }
+                                            }
+                                            $_SESSION['id_automacao'] = $id_automacoes;
+
+
+                                            $result5 =  $conn->query("SELECT * FROM escavador_usuario WHERE id_usuario = '$id_usuario' ");
+                                            $cont = mysqli_num_rows($result5);
+                                            if ($cont <=0) {
+                                                 // echo ("Sem automações ativas");
+                                            }else{
+                                                // echo "conectado";
+                                                if ($cont == 1) {
+                                                    while ($row=$result5->fetch_assoc()) {
+                                                        $_SESSION['totalEscavador'] = $row['chamadas_total'];
+                                                        $_SESSION['minutosEscavador'] = $row['minutos_salvos'];
+
+                                                    }
+                                                }
+                                            }
+
+                                            $result6 =  $conn->query("SELECT * FROM digesto_usuario WHERE id_usuario = '$id_usuario' ");
+                                            $cont = mysqli_num_rows($result6);
+                                            if ($cont <=0) {
+                                                 // echo ("Sem automações ativas");
+                                            }else{
+                                                // echo "conectado";
+                                                if ($cont == 1) {
+                                                    while ($row=$result6->fetch_assoc()) {
+                                                        $_SESSION['totalDigesto'] = $row['chamadas_total'];
+                                                        $_SESSION['minutosDigesto'] = $row['minutos_salvos'];
+                                                    }
+                                                }
+                                            }
+
                                         ?>
-
-
-                                        <!-- <small>GB</small> -->
                                     </h3>
                                 </div>
                                 <div class="card-footer">
@@ -166,7 +266,7 @@ if (!($_SESSION['logado'])) {
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">date_range</i> desde a seua primeira automação
+                                        <i class="material-icons">date_range</i> Desde a seua primeira automação
                                     </div>
                                 </div>
                             </div>
@@ -184,19 +284,19 @@ if (!($_SESSION['logado'])) {
                                             echo($_SESSION['horas_salvas']);
                                          ?>
 
-                                        <small>horas</small>
+                                        <small>minutos</small>
                                     </h3>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">help</i> Minutos totais economizados
+                                        <i class="material-icons">help</i> Minutos totais economizados com as automatizações
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6 col-md-12 ">
+                        <div class="col-lg-6 col-md-12">
                             <div class="card">
                                 <div class="card-header card-chart" data-background-color="black">
                                     <div class="ct-chart" id="dailySalesChart"></div>
@@ -257,30 +357,15 @@ if (!($_SESSION['logado'])) {
                                 <div class="card-content table-responsive">
                                     <table class="table table-hover">
                                         <thead style="color: black">
-                                            <th>ID</th>
                                             <th>Entrada de dados</th>
                                             <th>Saída de dados</th>
-                                            <th>Chamadas feitas</th>
-                                            <th>Erros</th>
-                                            <th>Horas salvas</th>
+                                            <th>Eventos Feitos</th>
+                                            <th>Tempo economizado salvas</th>
                                         </thead>
-                                        <tbody style="color: grey">
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Escavador</td>
-                                                <td>Trello</td>
-                                                <td>312</td>
-                                                <td style="color: red">0</td>
-                                                <td>10</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Digesto</td>
-                                                <td>Trello</td>
-                                                <td>226</td>
-                                                <td style="color: red">1</td>
-                                                <td>27</td>
-                                            </tr>
+                                        <tbody style="color: grey" id="tabelaAut">
+
+
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -315,6 +400,7 @@ if (!($_SESSION['logado'])) {
 
         // Javascript method's body can be found in assets/js/demos.js
         demo.initDashboardPageCharts();
+        tabela();
 
     });
 </script>
@@ -369,12 +455,271 @@ demo = {
 
     initDashboardPageCharts: function() {
 
-        /* ----------==========     TOTAL CHAMADAS    ==========---------- */
+        /* ----------==========     TOTAL EVENTOS    ==========---------- */
+
+        var dia = '<?php echo $_SESSION['dia'] ;?>';
+        var diaN = '<?php echo $_SESSION['diaN'] ;?>';
+        var mes = '<?php echo $_SESSION['mes'] ;?>';
+
+        var seg = "";
+        var ter = "";
+        var qua = "";
+        var qui = "";
+        var sex = "";
+        var sab = "";
+        var dom = "";
+
+        var mes1 = mes;
+        var mes2 = mes;
+        var mes3 = mes;
+        var mes4 = mes;
+        var mes5 = mes;
+        var mes6 = mes;
+        var mes7 = mes;
+
+        var dia1 = diaN;
+        var dia2 =  diaN -1;
+        if(dia2<=0)
+        {
+          mes2 = mes2-1;
+          if(mes2==0)
+          {
+            mes2=12;
+          }
+          if(mes2 == 2)
+          {
+            dia2 = 27+dia2;
+          }
+          else
+          {
+            if(mes%2 == 1)
+            {
+              dia2 = 31+dia2;
+            }
+            else
+            {
+              dia2 = 30+dia2;
+            }
+          }
+        }
+        var dia3 = diaN-2;
+        if(dia3<=0)
+        {
+          mes3 = mes3-1;
+          if(mes3==0)
+          {
+            mes3=12;
+          }
+          if(mes3 == 2)
+          {
+            dia3 = 27+dia3;
+          }
+          else
+          {
+            if(mes%2 == 1)
+            {
+              dia3 = 31+dia3;
+            }
+            else
+            {
+              dia3 = 30+dia3;
+            }
+          }
+        }
+        var dia4 = diaN-3;
+        if(dia4<=0)
+        {
+          mes4 = mes4-1;
+          if(mes4==0)
+          {
+            mes4=12;
+          }
+          if(mes4 == 2)
+          {
+            dia4 = 27+dia4;
+          }
+          else
+          {
+            if(mes%2 == 1)
+            {
+              dia4 = 31+dia4;
+            }
+            else
+            {
+              dia4 = 30+dia4;
+            }
+          }
+        }
+        var dia5 = diaN-4;
+        if(mes5==0)
+        {
+          mes5=12;
+        }
+        if(dia5<=0)
+        {
+          mes5 = mes5-1;
+          if(mes5 == 2)
+          {
+            dia5 = 27+dia5;
+          }
+          else
+          {
+            if(mes%2 == 1)
+            {
+              dia5 = 31+dia5;
+            }
+            else
+            {
+              dia5 = +-dia5;
+            }
+          }
+        }
+        var dia6 = diaN-5;
+        if(dia6<=0)
+        {
+          mes6 = mes6-1;
+          if(mes6==0)
+          {
+            mes6=12;
+          }
+          if(mes6 == 2)
+          {
+            dia6 = 27+dia6;
+          }
+          else
+          {
+            if(mes%2 == 1)
+            {
+              dia6 = 31+dia6;
+            }
+            else
+            {
+              dia6 = 30+dia6;
+            }
+          }
+        }
+        var dia7 = diaN-6;
+        if(dia7<=0)
+        {
+          mes7 = mes7-1;
+          if(mes7==0)
+          {
+            mes7=12;
+          }
+          if(mes7 == 2)
+          {
+            dia7 = 27+dia7;
+          }
+          else
+          {
+            if(mes%2 == 1)
+            {
+
+              dia7 = 31+dia7;
+            }
+            else
+            {
+              dia7 = 30+dia7;
+            }
+          }
+        }
+
+
+
+        console.log(dia);
+
+        if(dia == "Monday")
+        {
+          seg = "Ter ("+dia7+"/"+mes7+")";
+          ter = "Qua ("+dia6+"/"+mes6+")";
+          qua = "Qui ("+dia5+"/"+mes5+")";
+          qui = "Sex ("+dia4+"/"+mes4+")";
+          sex = "Sab ("+dia3+"/"+mes3+")";
+          sab = "Dom ("+dia2+"/"+mes2+")";
+          dom = "Seg ("+dia1+"/"+mes1+")";
+        }
+        if(dia == "Tuesday")
+        {
+          seg = "Qua ("+dia1+"/"+mes1+")";
+          ter = "Qui ("+dia7+"/"+mes7+")";
+          qua = "Sex ("+dia6+"/"+mes6+")";
+          qui = "Sab ("+dia5+"/"+mes5+")";
+          sex = "Dom ("+dia4+"/"+mes4+")";
+          sab = "Seg ("+dia3+"/"+mes3+")";
+          dom = "Ter ("+dia2+"/"+mes2+")";
+        }
+        if(dia == "Wednesday")
+        {
+          seg = "Qui ("+dia2+"/"+mes2+")";
+          ter = "Sex ("+dia1+"/"+mes1+")";
+          qua = "Sab ("+dia7+"/"+mes7+")";
+          qui = "Dom ("+dia6+"/"+mes6+")";
+          sex = "Seg ("+dia5+"/"+mes5+")";
+          sab = "Ter ("+dia4+"/"+mes4+")";
+          dom = "Qua ("+dia3+"/"+mes3+")";
+        }
+        if(dia == "Thursday")
+        {
+          seg = "Sex ("+dia3+"/"+mes3+")";
+          ter = "Sab ("+dia2+"/"+mes2+")";
+          qua = "Dom ("+dia1+"/"+mes1+")";
+          qui = "Seg ("+dia7+"/"+mes7+")";
+          sex = "Ter ("+dia6+"/"+mes6+")";
+          sab = "Qua ("+dia5+"/"+mes5+")";
+          dom = "Qui ("+dia4+"/"+mes4+")";
+        }
+        if(dia == "Friday")
+        {
+          seg = "Sab ("+dia4+"/"+mes4+")";
+          ter = "Dom ("+dia3+"/"+mes3+")";
+          qua = "Seg ("+dia2+"/"+mes2+")";
+          qui = "Ter ("+dia1+"/"+mes1+")";
+          sex = "Qua ("+dia7+"/"+mes7+")";
+          sab = "Qui ("+dia6+"/"+mes6+")";
+          dom = "Sex ("+dia5+"/"+mes5+")";
+        }
+        if(dia == "Saturday")
+        {
+          seg = "Dom ("+dia5+"/"+mes5+")";
+          ter = "Seg ("+dia4+"/"+mes4+")";
+          qua = "Ter ("+dia3+"/"+mes3+")";
+          qui = "Qua ("+dia2+"/"+mes2+")";
+          sex = "Qui ("+dia1+"/"+mes1+")";
+          sab = "Sex ("+dia7+"/"+mes7+")";
+          dom = "Sab ("+dia6+"/"+mes6+")";
+        }
+        if(dia == "Sunday")
+        {
+          seg = "Seg ("+dia1+"/"+mes6+")";
+          ter = "Ter ("+dia2+"/"+mes5+")";
+          qua = "Qua ("+dia3+"/"+mes4+")";
+          qui = "Qui ("+dia4+"/"+mes3+")";
+          sex = "Sex ("+dia5+"/"+mes2+")";
+          sab = "Sab ("+dia6+"/"+mes1+")";
+          dom = "Dom ("+dia7+"/"+mes7+")";
+        }
+
+        var vl1 = '<?php echo $_SESSION['vl1'] ;?>';
+        var vl2 = '<?php echo $_SESSION['vl2'] ;?>';
+        var vl3 = '<?php echo $_SESSION['vl3'] ;?>';
+        var vl4 = '<?php echo $_SESSION['vl4'] ;?>';
+        var vl5 = '<?php echo $_SESSION['vl5'] ;?>';
+        var vl6 = '<?php echo $_SESSION['vl6'] ;?>';
+        var vl7 = '<?php echo $_SESSION['vl7'] ;?>';
+
+        var result = Math.max(vl1,vl2,vl3,vl4,vl5,vl6,vl7);
+        if(result == 0)
+        {
+          result = 1;
+        }
+        else {
+          result = result * 1.25;
+        }
 
         dataDailySalesChart = {
-            labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
+            labels: [seg, ter, qua, qui, sex, sab, dom],
             series: [
-                [22, 17, 7, 17, 23, 18, 38]
+                [vl1, vl2, vl3, vl4, vl5, vl6, vl7]
             ]
         };
 
@@ -383,7 +728,7 @@ demo = {
                 tension: 0
             }),
             low: 0,
-            high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+            high: result, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
             chartPadding: {
                 top: 0,
                 right: 0,
@@ -400,11 +745,270 @@ demo = {
 
         /* ----------==========     HORAS SALVAS    ==========---------- */
 
+        var dia = '<?php echo $_SESSION['dia'] ;?>';
+        var diaN = '<?php echo $_SESSION['diaN'] ;?>';
+        var mes = '<?php echo $_SESSION['mes'] ;?>';
+
+        var seg = "";
+        var ter = "";
+        var qua = "";
+        var qui = "";
+        var sex = "";
+        var sab = "";
+        var dom = "";
+
+        var mes1 = mes;
+        var mes2 = mes;
+        var mes3 = mes;
+        var mes4 = mes;
+        var mes5 = mes;
+        var mes6 = mes;
+        var mes7 = mes;
+
+        var dia1 = diaN;
+        var dia2 =  diaN -1;
+        if(dia2<=0)
+        {
+          mes2 = mes2-1;
+          if(mes2==0)
+          {
+            mes2=12;
+          }
+          if(mes2 == 2)
+          {
+            dia2 = 27+dia2;
+          }
+          else
+          {
+            if(mes%2 == 1)
+            {
+              dia2 = 31+dia2;
+            }
+            else
+            {
+              dia2 = 30+dia2;
+            }
+          }
+        }
+        var dia3 = diaN-2;
+        if(dia3<=0)
+        {
+          mes3 = mes3-1;
+          if(mes3==0)
+          {
+            mes3=12;
+          }
+          if(mes3 == 2)
+          {
+            dia3 = 27+dia3;
+          }
+          else
+          {
+            if(mes%2 == 1)
+            {
+              dia3 = 31+dia3;
+            }
+            else
+            {
+              dia3 = 30+dia3;
+            }
+          }
+        }
+        var dia4 = diaN-3;
+        if(dia4<=0)
+        {
+          mes4 = mes4-1;
+          if(mes4==0)
+          {
+            mes4=12;
+          }
+          if(mes4 == 2)
+          {
+            dia4 = 27+dia4;
+          }
+          else
+          {
+            if(mes%2 == 1)
+            {
+              dia4 = 31+dia4;
+            }
+            else
+            {
+              dia4 = 30+dia4;
+            }
+          }
+        }
+        var dia5 = diaN-4;
+        if(mes5==0)
+        {
+          mes5=12;
+        }
+        if(dia5<=0)
+        {
+          mes5 = mes5-1;
+          if(mes5 == 2)
+          {
+            dia5 = 27+dia5;
+          }
+          else
+          {
+            if(mes%2 == 1)
+            {
+              dia5 = 31+dia5;
+            }
+            else
+            {
+              dia5 = +-dia5;
+            }
+          }
+        }
+        var dia6 = diaN-5;
+        if(dia6<=0)
+        {
+          mes6 = mes6-1;
+          if(mes6==0)
+          {
+            mes6=12;
+          }
+          if(mes6 == 2)
+          {
+            dia6 = 27+dia6;
+          }
+          else
+          {
+            if(mes%2 == 1)
+            {
+              dia6 = 31+dia6;
+            }
+            else
+            {
+              dia6 = 30+dia6;
+            }
+          }
+        }
+        var dia7 = diaN-6;
+        if(dia7<=0)
+        {
+          mes7 = mes7-1;
+          if(mes7==0)
+          {
+            mes7=12;
+          }
+          if(mes7 == 2)
+          {
+            dia7 = 27+dia7;
+          }
+          else
+          {
+            if(mes%2 == 1)
+            {
+
+              dia7 = 31+dia7;
+            }
+            else
+            {
+              dia7 = 30+dia7;
+            }
+          }
+        }
+
+
+
+        console.log(dia);
+
+        if(dia == "Monday")
+        {
+          seg = "Ter ("+dia7+"/"+mes7+")";
+          ter = "Qua ("+dia6+"/"+mes6+")";
+          qua = "Qui ("+dia5+"/"+mes5+")";
+          qui = "Sex ("+dia4+"/"+mes4+")";
+          sex = "Sab ("+dia3+"/"+mes3+")";
+          sab = "Dom ("+dia2+"/"+mes2+")";
+          dom = "Seg ("+dia1+"/"+mes1+")";
+        }
+        if(dia == "Tuesday")
+        {
+          seg = "Qua ("+dia1+"/"+mes1+")";
+          ter = "Qui ("+dia7+"/"+mes7+")";
+          qua = "Sex ("+dia6+"/"+mes6+")";
+          qui = "Sab ("+dia5+"/"+mes5+")";
+          sex = "Dom ("+dia4+"/"+mes4+")";
+          sab = "Seg ("+dia3+"/"+mes3+")";
+          dom = "Ter ("+dia2+"/"+mes2+")";
+        }
+        if(dia == "Wednesday")
+        {
+          seg = "Qui ("+dia2+"/"+mes2+")";
+          ter = "Sex ("+dia1+"/"+mes1+")";
+          qua = "Sab ("+dia7+"/"+mes7+")";
+          qui = "Dom ("+dia6+"/"+mes6+")";
+          sex = "Seg ("+dia5+"/"+mes5+")";
+          sab = "Ter ("+dia4+"/"+mes4+")";
+          dom = "Qua ("+dia3+"/"+mes3+")";
+        }
+        if(dia == "Thursday")
+        {
+          seg = "Sex ("+dia3+"/"+mes3+")";
+          ter = "Sab ("+dia2+"/"+mes2+")";
+          qua = "Dom ("+dia1+"/"+mes1+")";
+          qui = "Seg ("+dia7+"/"+mes7+")";
+          sex = "Ter ("+dia6+"/"+mes6+")";
+          sab = "Qua ("+dia5+"/"+mes5+")";
+          dom = "Qui ("+dia4+"/"+mes4+")";
+        }
+        if(dia == "Friday")
+        {
+          seg = "Sab ("+dia4+"/"+mes4+")";
+          ter = "Dom ("+dia3+"/"+mes3+")";
+          qua = "Seg ("+dia2+"/"+mes2+")";
+          qui = "Ter ("+dia1+"/"+mes1+")";
+          sex = "Qua ("+dia7+"/"+mes7+")";
+          sab = "Qui ("+dia6+"/"+mes6+")";
+          dom = "Sex ("+dia5+"/"+mes5+")";
+        }
+        if(dia == "Saturday")
+        {
+          seg = "Dom ("+dia5+"/"+mes5+")";
+          ter = "Seg ("+dia4+"/"+mes4+")";
+          qua = "Ter ("+dia3+"/"+mes3+")";
+          qui = "Qua ("+dia2+"/"+mes2+")";
+          sex = "Qui ("+dia1+"/"+mes1+")";
+          sab = "Sex ("+dia7+"/"+mes7+")";
+          dom = "Sab ("+dia6+"/"+mes6+")";
+        }
+        if(dia == "Sunday")
+        {
+          seg = "Seg ("+dia1+"/"+mes6+")";
+          ter = "Ter ("+dia2+"/"+mes5+")";
+          qua = "Qua ("+dia3+"/"+mes4+")";
+          qui = "Qui ("+dia4+"/"+mes3+")";
+          sex = "Sex ("+dia5+"/"+mes2+")";
+          sab = "Sab ("+dia6+"/"+mes1+")";
+          dom = "Dom ("+dia7+"/"+mes7+")";
+        }
+
+        var vl1 = '<?php echo $_SESSION['vl1T'] ;?>';
+        var vl2 = '<?php echo $_SESSION['vl2T'] ;?>';
+        var vl3 = '<?php echo $_SESSION['vl3T'] ;?>';
+        var vl4 = '<?php echo $_SESSION['vl4T'] ;?>';
+        var vl5 = '<?php echo $_SESSION['vl5T'] ;?>';
+        var vl6 = '<?php echo $_SESSION['vl6T'] ;?>';
+        var vl7 = '<?php echo $_SESSION['vl7T'] ;?>';
+
+        var result = Math.max(vl1,vl2,vl3,vl4,vl5,vl6,vl7);
+        if(result == 0)
+        {
+          result = 1;
+        }
+        else {
+          result = result * 1.25;
+        }
+
         dataCompletedTasksChart = {
-            labels: ['Seg', 'Ter', 'Quar', 'Qui', 'Sex', 'Sáb', 'Dom'],
-            series: [
-                [8, 7, 5, 12, 8, 4, 2]
-            ]
+          labels: [seg, ter, qua, qui, sex, sab, dom],
+          series: [
+              [vl1, vl2, vl3, vl4, vl5, vl6, vl7]
+          ]
         };
 
         optionsCompletedTasksChart = {
@@ -412,7 +1016,7 @@ demo = {
                 tension: 0
             }),
             low: 0,
-            high: 24, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+            high: result, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
             chartPadding: {
                 top: 0,
                 right: 0,
@@ -593,10 +1197,47 @@ demo = {
 
 </script>
 
+<script>
+function tabela()
+{
+  var divToPrint=document.getElementById("tabelaAut");
+  var js_array =<?php echo json_encode($_SESSION['id_automacao']);?>;
+  var html;
+  var i=0;
+  var lengthA = js_array.length;
+  for(i;i<lengthA;i++)
+  {
+    var input;
+    var output;
+    var total;
+    var minutos;
+    if(js_array[i] == 0)
+    {
+      input = "Escavador";
+      output = "Trello";
+      total = <?php echo json_encode($_SESSION['totalEscavador']);?>;
+      minutos = <?php echo json_encode($_SESSION['minutosEscavador']);?>;
+      html = html + "<tr><td>"+input+"</td><td>"+output+"</td><td>"+total+"</td><td>"+minutos+"</td></tr>";
+    }
+    if(js_array[i] == 1)
+    {
+      input = "Digesto";
+      output = "Trello";
+      total = <?php echo json_encode($_SESSION['totalDigesto']);?>;
+      minutos = <?php echo json_encode($_SESSION['minutosDigesto']);?>;
+      html = html + "<tr><td>"+input+"</td><td>"+output+"</td><td>"+total+"</td><td>"+minutos+"</td></tr>";
+    }
 
+  }
+  html = html.replace("undefined<tr>","<tr>");
+  console.log(html);
+  divToPrint.innerHTML = html;
+}
+
+
+</script>
 
 
 
 
 </html>
-
