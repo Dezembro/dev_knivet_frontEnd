@@ -40,7 +40,7 @@ if ($cont <=0) {
             if($row['id_automacao'] == 0)
             {
 
-              $escavador_trello = 1; // true 
+              $escavador_trello = 1; // true
             }
             if($row['id_automacao'] == 1)
             {
@@ -197,25 +197,25 @@ if ($cont <=0) {
                                     <br>
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
                                     <input style="width: 300px" type="password" class="form-control" name="senha_escavador" id="senha_escavador" placeholder="Digite a senha da sua conta Escavador"/>
-                                    <br> 
+                                    <br>
                                     <div class="checkbox" >
                                         <label>
                                             <input id="monitoramentos_antigos" type="checkbox" name="monitoramentos_antigos" value="checkado" bgcolor=#27B9D2>
                                         </label>
                                     </div>
-                               
+
                                 <td bgcolor="#27B9D2">Enviar para o trello monitoramentos anteriores a Knivet? </td>
 
                                   </div>
                                   <div class="stats" style="display: none" id="trello1">
-                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
-                                    <input style="width: 300px" type="text" class="form-control" name="email_trello" placeholder="Digite o email da sua conta Trello"/>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Token:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="text" class="form-control" name="token_trello" id="token_trello" placeholder="Digite o email da sua conta Trello"/>
                                     <br>
-                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
-                                    <input style="width: 300px" type="password" class="form-control" name="senha_trello" placeholder="Digite a senha da sua conta Trello"/>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Key:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="text" class="form-control" name="key_trello" id="key_trello" placeholder="Digite a senha da sua conta Trello"/>
                                   </div>
                                   <br>
-                                 
+
                                    <input id="escavador_trello_botao" type="submit" style="background-color: #27B9D2" class="btn btn-primary btn-block" value="Salvar" >
 
                               </form>
