@@ -40,7 +40,7 @@ if ($cont <=0) {
 
 		//	print ($_SESSION['email']);
 			$_SESSION['nome'] = $row['usuario'];
-
+			$_SESSION['id_usuario']= $row['id'];
 		//	print($_SESSION['usuario']);
 			header("location:resumo.php");
 		}

@@ -40,12 +40,12 @@ if ($cont <=0) {
             if($row['id_automacao'] == 0)
             {
 
-              $escavador_trello = 1;
+              $escavador_trello = 1; // true 
             }
             if($row['id_automacao'] == 1)
             {
 
-              $digesto_trello = 1;
+              $digesto_trello = 1; // true
             }
     }
 }
@@ -185,7 +185,7 @@ if ($cont <=0) {
 
                                   </div>
                               </div>
-                              <form class="card-footer" id="escavador_trello" style="display: none" method="post">
+                              <form class="card-footer" action="escavador_enviar_dados.php" id="escavador_trello" style="display: none" method="post">
                                     <br>
                                     <a href="#" onclick="escavador1()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Escavador </a>
                                     <i class="material-icons" style="font-size: 150%; color: grey;">autorenew</i>
@@ -193,10 +193,19 @@ if ($cont <=0) {
                                     <br>
                                   <div class="stats" style="display: none" id="escavador">
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
-                                    <input style="width: 300px" type="text" class="form-control" name="email_escavador" placeholder="Digite o email da sua conta Escavador"/>
+                                    <input style="width: 300px" type="text" class="form-control" name="email_escavador" id="email_escavador" placeholder="Digite o email da sua conta Escavador"/>
                                     <br>
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
-                                    <input style="width: 300px" type="password" class="form-control" name="senha_escavador" placeholder="Digite a senha da sua conta Escavador"/>
+                                    <input style="width: 300px" type="password" class="form-control" name="senha_escavador" id="senha_escavador" placeholder="Digite a senha da sua conta Escavador"/>
+                                    <br> 
+                                    <div class="checkbox" >
+                                        <label>
+                                            <input id="monitoramentos_antigos" type="checkbox" name="monitoramentos_antigos" value="checkado" bgcolor=#27B9D2>
+                                        </label>
+                                    </div>
+                               
+                                <td bgcolor="#27B9D2">Enviar para o trello monitoramentos anteriores a Knivet? </td>
+
                                   </div>
                                   <div class="stats" style="display: none" id="trello1">
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
@@ -206,7 +215,9 @@ if ($cont <=0) {
                                     <input style="width: 300px" type="password" class="form-control" name="senha_trello" placeholder="Digite a senha da sua conta Trello"/>
                                   </div>
                                   <br>
-                                  <input id="escavador_trello_botao" type="submit" style="background-color: #27B9D2" class="btn btn-primary btn-block" value="Salvar" >
+                                 
+                                   <input id="escavador_trello_botao" type="submit" style="background-color: #27B9D2" class="btn btn-primary btn-block" value="Salvar" >
+
                               </form>
                           </div>
 

@@ -62,6 +62,25 @@ mail($to, $subject, $message, $headers);
  	$_SESSION['email'] = $email;
 	$_SESSION['nome'] = $usuario;
 
+
+	   $result =  $conn->query("SELECT * FROM usuario WHERE email = '$aux' ");
+       $cont = mysqli_num_rows($result);
+         if ($cont <=0) {
+           echo ("erro");
+         }else{
+             // echo "conectado";
+             if ($cont == 1) {
+                 while ($row=$result->fetch_assoc()) {
+                    
+                      $_SESSION['id_usuario']= $row['id'];
+                     
+                   }
+             }
+        }
+
+
+
+
 	header("location:resumo.php");
 
  }else{
