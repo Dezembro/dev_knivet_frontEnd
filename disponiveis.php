@@ -14,6 +14,45 @@ if (!($_SESSION['logado'])) {
 //Warning: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\Knivet\resumo.php:86) in C:\xampp\htdocs\Knivet\resumo.php on line 587
 ?>
 
+
+<?php
+
+$conn = new  mysqli("mysql762.umbler.com:41890","knivet","knivet2017","knivet");
+if ($conn->connect_erro){
+    die($conn->connect_erro);
+    echo "Erro ao conectar";
+}
+
+$id = $_SESSION['id'];
+
+$result =  $conn->query("SELECT * FROM automacoes_ativas WHERE id_usuario = '$id' ");
+$cont = mysqli_num_rows($result);
+$escavador_trello = 0;
+$digesto_trello = 0;
+$id_automacoes;
+if ($cont <=0) {
+
+}else{
+    // echo "conectado";
+    while ($row=$result->fetch_assoc())
+    {
+
+            if($row['id_automacao'] == 0)
+            {
+
+              $escavador_trello = 1;
+            }
+            if($row['id_automacao'] == 1)
+            {
+
+              $digesto_trello = 1;
+            }
+    }
+}
+
+ ?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -116,6 +155,9 @@ if (!($_SESSION['logado'])) {
                           </div>
                       </div>
 
+
+                      <!-- Escavador->Trello -->
+
                       <div class="col-lg-4 col-md-4 col-sm-12">
                           <div class="card card-stats">
                               <div class="card-header" style="background-color: rgba(25,25,25,0.17);">
@@ -135,9 +177,7 @@ if (!($_SESSION['logado'])) {
                                         </label>
                                     </div>
                                 </td>
-
                                 <td bgcolor="#27B9D2">Ativar automação</td>
-
                                 <br>
                                   <div class="stats">
                                     <br><br>
@@ -145,49 +185,57 @@ if (!($_SESSION['logado'])) {
 
                                   </div>
                               </div>
-                              <div class="card-footer" id="escavador_trello" style="display: none">
+                              <form class="card-footer" id="escavador_trello" style="display: none" method="post">
                                     <br>
                                     <a href="#" onclick="escavador1()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Escavador </a>
                                     <i class="material-icons" style="font-size: 150%; color: grey;">autorenew</i>
                                     <a href="#" onclick="trello2()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Trello</a>
-                                    <br>  <br>  <br>
-                                  
-                                
+                                    <br>
                                   <div class="stats" style="display: none" id="escavador">
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
                                     <input style="width: 300px" type="text" class="form-control" name="email_escavador" placeholder="Digite o email da sua conta Escavador"/>
                                     <br>
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
                                     <input style="width: 300px" type="password" class="form-control" name="senha_escavador" placeholder="Digite a senha da sua conta Escavador"/>
-                                    <br>
-
-                                    <td bgcolor="#27B9D2"> <font size="4"> Deseja ter antigos monitoramentos no trello? </font>  </style></td>
-                                     
-                                    <div class="checkbox" >
-                                        <label>
-                                            <input id="checkAntigasMovimentacoes" type="checkbox" name="checkAntigasMovimentacoes" bgcolor=#27B9D2>
-                                        </label>
-                                    </div>
-
                                   </div>
-                                  
-
                                   <div class="stats" style="display: none" id="trello1">
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
                                     <input style="width: 300px" type="text" class="form-control" name="email_trello" placeholder="Digite o email da sua conta Trello"/>
                                     <br>
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
                                     <input style="width: 300px" type="password" class="form-control" name="senha_trello" placeholder="Digite a senha da sua conta Trello"/>
-
                                   </div>
-<!--
-                                      <div class="form-group">
-                                         <!--     <button type="submit" style="background-color: rgba(88,155,152,0.9)" class="btn btn-primary btn-block">Entrar</button>-->
-                                      <!--    <input class="btn btn-primary btn-block" type="submit" style="background-color: rgba(88,155,152,0.9)" class="btn btn-primary btn-block" value="Enviar"> <!-- fundo button 
-                                           </div>
-                                           -->
-                              </div>
+                                  <br>
+                                  <input id="escavador_trello_botao" type="submit" style="background-color: #27B9D2" class="btn btn-primary btn-block" value="Salvar" >
+                              </form>
                           </div>
+
+                          <script>
+
+
+                          function verificarAtivos() {
+                            var escavador_trello = '<?php echo($escavador_trello); ?>';
+                            var digesto_trello = '<?php echo($digesto_trello); ?>';
+                            console.log(escavador_trello);
+                            console.log(digesto_trello);
+                            if(escavador_trello==1)
+                            {
+                              var esc_tre_C = document.getElementById("escavador_trello_cb");
+                              esc_tre_C.checked = true;
+                            }
+                            if(digesto_trello==1)
+                            {
+                              var dig_tre_C = document.getElementById("digesto_trello_cb");
+                              dig_tre_C.checked = true;
+                            }
+                          }
+
+
+                          </script>
+
+                          <!-- Digesto->Trello -->
+
+
                       </div>
                       <div class="col-lg-4 col-md-4 col-sm-12">
                           <div class="card card-stats">
@@ -319,6 +367,18 @@ function escavador_trello() {
         x.style.display = "none";
     }
 }
+
+function escavador_trello2() {
+    var x = document.getElementById("escavador_trello");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+
+
 function escavador1() {
     var x = document.getElementById("escavador");
     var y = document.getElementById("trello1");
@@ -367,6 +427,7 @@ function trello2() {
 
         // Javascript method's body can be found in assets/js/demos.js
         demo.initDashboardPageCharts();
+        verificarAtivos();
 
     });
 </script>

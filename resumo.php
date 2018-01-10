@@ -117,9 +117,9 @@ if (!($_SESSION['logado'])) {
                                             // $_SESSION['dia'] = jddayofweek ( cal_to_jd(CAL_GREGORIAN, date("m"),date("d"), date("Y")) , 1 );
 
                                             date_default_timezone_set('America/Sao_Paulo');
-                                            $_SESSION['dia'] = date("l");
-                                            $_SESSION['diaN'] = date("d");
-                                            $_SESSION['mes'] = date("m");
+                                            $dia = date("l");
+                                            $diaN = date("d");
+                                            $mes = date("m");
 
                                             $conn = new  mysqli("mysql762.umbler.com:41890","knivet","knivet2017","knivet");
                                             if ($conn->connect_erro){
@@ -138,8 +138,8 @@ if (!($_SESSION['logado'])) {
                                                 // echo "conectado";
                                                 if ($cont == 1) {
                                                     while ($row=$result->fetch_assoc()) {
-                                                        $_SESSION['aut_feitas'] = $row['num_automatizacoes_total'];
-                                                        $_SESSION['horas_salvas'] = $row['minutos_salvos_total'];
+                                                        $aut_feitas = $row['num_automatizacoes_total'];
+                                                        $horas_salvas = $row['minutos_salvos_total'];
                                                         $id_usuario = $row['id'];
                                                       echo ( $row['automacoes_ativas']/*."/".$row['automacoes_max']*/);
                                                     }
@@ -157,13 +157,13 @@ if (!($_SESSION['logado'])) {
                                                 // echo "conectado";
                                                 if ($cont == 1) {
                                                     while ($row=$result2->fetch_assoc()) {
-                                                        $_SESSION['vl1'] = $row['vl1'];
-                                                        $_SESSION['vl2'] = $row['vl2'];
-                                                        $_SESSION['vl3'] = $row['vl3'];
-                                                        $_SESSION['vl4'] = $row['vl4'];
-                                                        $_SESSION['vl5'] = $row['vl5'];
-                                                        $_SESSION['vl6'] = $row['vl6'];
-                                                        $_SESSION['vl7'] = $row['vl7'];
+                                                        $vl1 = $row['vl1'];
+                                                        $vl2 = $row['vl2'];
+                                                        $vl3 = $row['vl3'];
+                                                        $vl4 = $row['vl4'];
+                                                        $vl5 = $row['vl5'];
+                                                        $vl6 = $row['vl6'];
+                                                        $vl7 = $row['vl7'];
                                                     }
                                                 }
                                             }
@@ -179,13 +179,13 @@ if (!($_SESSION['logado'])) {
                                                 // echo "conectado";
                                                 if ($cont == 1) {
                                                     while ($row=$result3->fetch_assoc()) {
-                                                        $_SESSION['vl1T'] = $row['vl1'];
-                                                        $_SESSION['vl2T'] = $row['vl2'];
-                                                        $_SESSION['vl3T'] = $row['vl3'];
-                                                        $_SESSION['vl4T'] = $row['vl4'];
-                                                        $_SESSION['vl5T'] = $row['vl5'];
-                                                        $_SESSION['vl6T'] = $row['vl6'];
-                                                        $_SESSION['vl7T'] = $row['vl7'];
+                                                        $vl1T = $row['vl1'];
+                                                        $vl2T = $row['vl2'];
+                                                        $vl3T = $row['vl3'];
+                                                        $vl4T = $row['vl4'];
+                                                        $vl5T = $row['vl5'];
+                                                        $vl6T = $row['vl6'];
+                                                        $vl7T = $row['vl7'];
                                                     }
                                                 }
                                             }
@@ -218,8 +218,8 @@ if (!($_SESSION['logado'])) {
                                                 // echo "conectado";
                                                 if ($cont == 1) {
                                                     while ($row=$result5->fetch_assoc()) {
-                                                        $_SESSION['totalEscavador'] = $row['chamadas_total'];
-                                                        $_SESSION['minutosEscavador'] = $row['minutos_salvos'];
+                                                        $totalEscavador = $row['chamadas_total'];
+                                                        $minutosEscavador = $row['minutos_salvos'];
 
                                                     }
                                                 }
@@ -233,8 +233,8 @@ if (!($_SESSION['logado'])) {
                                                 // echo "conectado";
                                                 if ($cont == 1) {
                                                     while ($row=$result6->fetch_assoc()) {
-                                                        $_SESSION['totalDigesto'] = $row['chamadas_total'];
-                                                        $_SESSION['minutosDigesto'] = $row['minutos_salvos'];
+                                                        $totalDigesto = $row['chamadas_total'];
+                                                        $minutosDigesto = $row['minutos_salvos'];
                                                     }
                                                 }
                                             }
@@ -259,7 +259,7 @@ if (!($_SESSION['logado'])) {
                                     <h3 class="title">
 
                                         <?php
-                                            echo($_SESSION['aut_feitas']);
+                                            echo($aut_feitas);
                                          ?>
 
                                     </h3>
@@ -281,7 +281,7 @@ if (!($_SESSION['logado'])) {
                                     <h3 class="title">
 
                                         <?php
-                                            echo($_SESSION['horas_salvas']);
+                                            echo($horas_salvas);
                                          ?>
 
                                         <small>minutos</small>
@@ -360,7 +360,7 @@ if (!($_SESSION['logado'])) {
                                             <th>Entrada de dados</th>
                                             <th>Saída de dados</th>
                                             <th>Eventos Feitos</th>
-                                            <th>Tempo economizado salvas</th>
+                                            <th>Minutos salvos</th>
                                         </thead>
                                         <tbody style="color: grey" id="tabelaAut">
 
@@ -457,9 +457,9 @@ demo = {
 
         /* ----------==========     TOTAL EVENTOS    ==========---------- */
 
-        var dia = '<?php echo $_SESSION['dia'] ;?>';
-        var diaN = '<?php echo $_SESSION['diaN'] ;?>';
-        var mes = '<?php echo $_SESSION['mes'] ;?>';
+        var dia = '<?php echo $dia?>';
+        var diaN = '<?php echo $diaN?>';
+        var mes = '<?php echo $mes?>';
 
         var seg = "";
         var ter = "";
@@ -699,13 +699,15 @@ demo = {
           dom = "Dom ("+dia7+"/"+mes7+")";
         }
 
-        var vl1 = '<?php echo $_SESSION['vl1'] ;?>';
-        var vl2 = '<?php echo $_SESSION['vl2'] ;?>';
-        var vl3 = '<?php echo $_SESSION['vl3'] ;?>';
-        var vl4 = '<?php echo $_SESSION['vl4'] ;?>';
-        var vl5 = '<?php echo $_SESSION['vl5'] ;?>';
-        var vl6 = '<?php echo $_SESSION['vl6'] ;?>';
-        var vl7 = '<?php echo $_SESSION['vl7'] ;?>';
+        var vl1 = '<?php echo $vl1?>';
+        var vl2 = '<?php echo $vl2?>';
+        var vl3 = '<?php echo $vl3?>';
+        var vl4 = '<?php echo $vl4?>';
+        var vl5 = '<?php echo $vl5?>';
+        var vl6 = '<?php echo $vl6?>';
+        var vl7 = '<?php echo $vl7?>';
+
+        console.log("VL1 = "+vl1);
 
         var result = Math.max(vl1,vl2,vl3,vl4,vl5,vl6,vl7);
         if(result == 0)
@@ -745,9 +747,9 @@ demo = {
 
         /* ----------==========     HORAS SALVAS    ==========---------- */
 
-        var dia = '<?php echo $_SESSION['dia'] ;?>';
-        var diaN = '<?php echo $_SESSION['diaN'] ;?>';
-        var mes = '<?php echo $_SESSION['mes'] ;?>';
+        var dia = '<?php echo $dia?>';
+        var diaN = '<?php echo $diaN?>';
+        var mes = '<?php echo $mes?>';
 
         var seg = "";
         var ter = "";
@@ -987,13 +989,13 @@ demo = {
           dom = "Dom ("+dia7+"/"+mes7+")";
         }
 
-        var vl1 = '<?php echo $_SESSION['vl1T'] ;?>';
-        var vl2 = '<?php echo $_SESSION['vl2T'] ;?>';
-        var vl3 = '<?php echo $_SESSION['vl3T'] ;?>';
-        var vl4 = '<?php echo $_SESSION['vl4T'] ;?>';
-        var vl5 = '<?php echo $_SESSION['vl5T'] ;?>';
-        var vl6 = '<?php echo $_SESSION['vl6T'] ;?>';
-        var vl7 = '<?php echo $_SESSION['vl7T'] ;?>';
+        var vl1 = '<?php echo $vl1T?>';
+        var vl2 = '<?php echo $vl2T?>';
+        var vl3 = '<?php echo $vl3T?>';
+        var vl4 = '<?php echo $vl4T?>';
+        var vl5 = '<?php echo $vl5T?>';
+        var vl6 = '<?php echo $vl6T?>';
+        var vl7 = '<?php echo $vl7T?>';
 
         var result = Math.max(vl1,vl2,vl3,vl4,vl5,vl6,vl7);
         if(result == 0)
@@ -1201,7 +1203,7 @@ demo = {
 function tabela()
 {
   var divToPrint=document.getElementById("tabelaAut");
-  var js_array =<?php echo json_encode($_SESSION['id_automacao']);?>;
+  var js_array =<?php echo json_encode($id_automacao)?>;
   var html;
   var i=0;
   var lengthA = js_array.length;
@@ -1215,16 +1217,16 @@ function tabela()
     {
       input = "Escavador";
       output = "Trello";
-      total = <?php echo json_encode($_SESSION['totalEscavador']);?>;
-      minutos = <?php echo json_encode($_SESSION['minutosEscavador']);?>;
+      total = <?php echo json_encode($totalEscavador)?>;
+      minutos = <?php echo json_encode($minutosEscavador)?>;
       html = html + "<tr><td>"+input+"</td><td>"+output+"</td><td>"+total+"</td><td>"+minutos+"</td></tr>";
     }
     if(js_array[i] == 1)
     {
       input = "Digesto";
       output = "Trello";
-      total = <?php echo json_encode($_SESSION['totalDigesto']);?>;
-      minutos = <?php echo json_encode($_SESSION['minutosDigesto']);?>;
+      total = <?php echo json_encode($totalDigesto)?>;
+      minutos = <?php echo json_encode($minutosDigesto)?>;
       html = html + "<tr><td>"+input+"</td><td>"+output+"</td><td>"+total+"</td><td>"+minutos+"</td></tr>";
     }
 
