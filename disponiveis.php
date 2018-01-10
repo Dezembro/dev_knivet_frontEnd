@@ -208,11 +208,17 @@ if ($cont <=0) {
 
                                   </div>
                                   <div class="stats" style="display: none" id="trello1">
-                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Token:</a>&nbsp;&nbsp;
-                                    <input style="width: 300px" type="text" class="form-control" name="token_trello" id="token_trello" placeholder="Digite o email da sua conta Trello"/>
-                                    <br>
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Key:</a>&nbsp;&nbsp;
-                                    <input style="width: 300px" type="text" class="form-control" name="key_trello" id="key_trello" placeholder="Digite a senha da sua conta Trello"/>
+                                    <!-- https://trello.com/app-key -->
+                                    <input style="width: 300px" type="text" class="form-control" name="key_trello" id="key_trello" placeholder="Digite a key da sua conta Trello"/>
+                                    <br>
+                                    <a style="font-size: 120%; color: grey;">Clique </a><a style="font-size: 120%;" target="_blank" href="https://trello.com/app-key">aqui</a><a style="font-size: 120%; color: grey;"> para resgatar sua Key. Você deve estar logado no trello para fazer isso. <br> Depois, copie a linha embaixo de "Chave:" e cole no campo acima</a>
+                                    <br>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Token:</a>&nbsp;&nbsp;
+                                    <!-- https://trello.com/1/authorize?expiration=never&name=Knivet&key=REPLACEWITHYOURKEY -->
+                                    <input style="width: 300px" type="text" class="form-control" name="token_trello" id="token_trello" placeholder="Digite o token da sua conta Trello"/>
+                                    <br>
+                                    <a style="font-size: 120%; color: grey;">Preencha o campo Key acima e clique </a><a href="#" style="font-size: 120%; color: blue;">aqui</a><a style="font-size: 120%; color: grey;"> para resgatar seu token.<br>Depois, clique em permitir e copie a linha abaixo de "verification code" que irá aparecer na tela para o campo Token acima</a>
                                   </div>
                                   <br>
 
@@ -291,11 +297,15 @@ if ($cont <=0) {
                                     <input style="width: 300px" type="password" class="form-control" name="senha_digesto" placeholder="Digite a senha da sua conta Digesto"/>
                                   </div>
                                   <div class="stats" style="display: none" id="trello2">
-                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
-                                    <input style="width: 300px" type="text" class="form-control" name="email_digesto" placeholder="Digite o email da sua conta Trello"/>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Key:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="text" class="form-control" name="email_digesto" placeholder="Digite a key da sua conta Trello"/>
                                     <br>
-                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
-                                    <input style="width: 300px" type="password" class="form-control" name="senha_digesto" placeholder="Digite a senha da sua conta Trello"/>
+                                    <a style="font-size: 120%; color: grey;">Clique </a><a style="font-size: 120%;" target="_blank" href="https://trello.com/app-key">aqui</a><a style="font-size: 120%; color: grey;"> para resgatar sua Key. Você deve estar logado no trello para fazer isso. <br> Depois, copie a linha embaixo de "Chave:" e cole no campo acima</a>
+                                    <br>
+                                    <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Token:</a>&nbsp;&nbsp;
+                                    <input style="width: 300px" type="text" class="form-control" name="senha_digesto" placeholder="Digite o token da sua conta Trello"/>
+                                    <br>
+                                    <a style="font-size: 120%; color: grey;">Preencha o campo Key acima e clique </a><a href="#" style="font-size: 120%; color: blue;">aqui</a><a style="font-size: 120%; color: grey;"> para resgatar seu token.<br>Depois, clique em permitir e copie a linha abaixo de "verification code" que irá aparecer na tela para o campo Token acima</a>
                                   </div>
                                   <br>
                                   <input id="digesto_trello_botao" type="submit" style="background-color: #27B9D2" class="btn btn-primary btn-block" value="Salvar" >
