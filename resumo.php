@@ -84,16 +84,6 @@ if (!($_SESSION['logado'])) {
             </div>
         </div>
         <div class="main-panel">
-
-
-
-          <!-- CARD PRIMEIRA AUTO -->
-          <div id="cardPrimeira" class="row">
-
-          </div>
-
-
-
             <nav class="navbar navbar-transparent navbar-absolute">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -206,10 +196,8 @@ if (!($_SESSION['logado'])) {
 
                                             $cont = mysqli_num_rows($result4);
                                             $id_automacoes = array();
-                                            $primeiraAuto = 0;
                                             if ($cont <=0)
                                             {
-                                              $primeiraAuto = 1;
                                             }
                                             else
                                             {
@@ -278,12 +266,7 @@ if (!($_SESSION['logado'])) {
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">date_range</i> Desde a sua primeira automação
-                                    </div>
-                                    <div class="stats">
-                                      <div class="navbar-brand hidden-lg">
-                                        <a href="#tabelaAutomatizacoes" style="background-color: #27B9D2" class="btn btn-primary btn-block">Detalhes</a>
-                                      </div>
+                                        <i class="material-icons">date_range</i> Desde a seua primeira automação
                                     </div>
                                 </div>
                             </div>
@@ -364,7 +347,7 @@ if (!($_SESSION['logado'])) {
                             </div>
                         </div> -->
                     </div>
-                    <div id="tabelaAutomatizacoes" class="row">
+                    <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="card">
                                 <div class="card-header" data-background-color="blue">
@@ -412,37 +395,15 @@ if (!($_SESSION['logado'])) {
 <script src="js/material-dashboard.js?v=1.2.0"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <!-- <script src="js/demo.js"></script> -->
-
-
-
 <script type="text/javascript">
     $(document).ready(function() {
 
         // Javascript method's body can be found in assets/js/demos.js
         demo.initDashboardPageCharts();
         tabela();
-        primeiraAuto();
-});
 
+    });
 </script>
-
-<script>
-
-
-
-$(document).ready(function() {
-  var primeira = '<?php echo($primeiraAuto); ?>';
-  console.log(primeira);
-  if(primeira == 1)
-  {
-    var divToPrint=document.getElementById("cardPrimeira");
-    html = "<div class=\"col-lg-12 col-md-12\"><div class=\"card\" style=\"background-color: rgba(0,0,0,0);\"><div class=\"card-header\" data-background-color=\"blue\"><center><h4 class=\"title\">Você ainda não possui automatizações ativas. <br> <a href=\"disponiveis.php\" style=\"color: #9B12AE\">clique aqui<a> e configure sua primeira automatização!</h4><center></div></div></div>";
-    divToPrint.innerHTML = html;
-  }
-  });
-
-</script>
-
 
 <script>
 type = ['', 'info', 'success', 'warning', 'danger'];

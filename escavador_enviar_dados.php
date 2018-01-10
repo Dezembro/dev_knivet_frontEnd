@@ -26,6 +26,9 @@ if (!($_SESSION['logado'])) {
 
 $email = $_POST['email_escavador'];
 $senha = $_POST['senha_escavador'];
+$token = $_POST['token_trello'];
+$key = $_POST['key_trello'];
+
 
 if(isset($_POST['monitoramentos_antigos']))
 {
@@ -61,6 +64,16 @@ else
  				echo "failed segundo INSERT";
 			}
 
+
+			$sql = "INSERT INTO trello_usuario(id_usuario,key,token) VALUES ('$id','$key','$token')";
+			
+			if ($conn->query($sql)===true) {
+ 				echo "sucesso  INSERT trello";
+ 					
+			}else{
+				echo "failed  INSERT trello";
+			}
+
 			header("location:disponiveis.php");
 		
 		}else{
@@ -68,11 +81,21 @@ else
 
 			if ($conn->query($sql)===true) {
  				echo "sucesso";
- 				header("location:disponiveis.php");
+ 				
+ 				$sql = "INSERT INTO trello_usuario(id_usuario,keyT,token) VALUES ('$id','$key','$token')";
+
+				if ($conn->query($sql)===true) {
+ 					echo "sucesso  INSERT trello";
+ 					header("location:disponiveis.php");
+				}else{
+ 					echo "failed  INSERT trello";
+				}
+
 			}else{
  				echo "failed";
 			}
 		}
+
 
 	$conn->close();
 
