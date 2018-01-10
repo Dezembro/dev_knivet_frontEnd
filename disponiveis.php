@@ -222,11 +222,13 @@ if ($cont <=0) {
                             {
                               var esc_tre_C = document.getElementById("escavador_trello_cb");
                               esc_tre_C.checked = true;
+                              checkEscavador_trello();
                             }
                             if(digesto_trello==1)
                             {
                               var dig_tre_C = document.getElementById("digesto_trello_cb");
                               dig_tre_C.checked = true;
+                              checkDigesto_trello();
                             }
                           }
 
@@ -264,7 +266,7 @@ if ($cont <=0) {
 
                                   </div>
                               </div>
-                              <div class="card-footer" id="digesto_trello" style="display: none">
+                              <form class="card-footer" id="digesto_trello" style="display: none">
                                     <br>
                                     <a href="#" onclick="digesto1()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Digesto</a>
                                     <i class="material-icons" style="font-size: 150%; color: grey;">autorenew</i>
@@ -284,7 +286,9 @@ if ($cont <=0) {
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Senha:</a>&nbsp;&nbsp;
                                     <input style="width: 300px" type="password" class="form-control" name="senha_digesto" placeholder="Digite a senha da sua conta Trello"/>
                                   </div>
-                              </div>
+                                  <br>
+                                  <input id="digesto_trello_botao" type="submit" style="background-color: #27B9D2" class="btn btn-primary btn-block" value="Salvar" >
+                              </form>
 
 
                           </div>
@@ -304,13 +308,16 @@ function checkDigesto_trello()
 {
     var x = document.getElementById("digesto_trello_cb").checked
     var y = document.getElementById("config_digesto_trello");
+    var z = document.getElementById("digesto_trello");
     if(x == true)
     {
       y.style.display = "block";
+      z.style.display = "block";
     }
     else
     {
       y.style.display = "none";
+      z.style.display = "none";
     }
 }
 
@@ -349,13 +356,16 @@ function checkEscavador_trello()
 {
     var x = document.getElementById("escavador_trello_cb").checked
     var y = document.getElementById("config_escavador_trello");
+    var z = document.getElementById("escavador_trello");
     if(x == true)
     {
       y.style.display = "block";
+      z.style.display = "block";
     }
     else
     {
       y.style.display = "none";
+      z.style.display = "none";
     }
 }
 
