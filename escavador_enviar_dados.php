@@ -99,6 +99,16 @@ else
  					header("location:disponiveis.php");
 				}else{
  					echo "failed  INSERT trello";
+					$sql = " UPDATE trello_usuario SET id_usuario='$id', keyT='$key', token ='$token' WHERE id_usuario ='$id' ";
+					if ($conn->query($sql)===true) {
+
+						header("location:disponiveis.php");
+					}else{
+
+						echo "failed  UPDATE trello";
+					}
+					
+
 				}
 
 			}else{
