@@ -28,6 +28,7 @@ $email = $_POST['email_escavador'];
 $senha = $_POST['senha_escavador'];
 $token = $_POST['token_trello'];
 $key = $_POST['key_trello'];
+print($token);
 
 
 if(isset($_POST['monitoramentos_antigos']))
@@ -52,29 +53,38 @@ else
 			$sql = " INSERT INTO automacoes_ativas(id_usuario,id_automacao) VALUES ('$id','$id_automacao') ";
 			if ($conn->query($sql)===true) {
  				echo "sucesso primerio INSERT";
+
+ 				$sql = "INSERT INTO escavador_usuario(id_usuario,email,senha,antigas_movimentacoes) VALUES ('$id','$email','$senha','$monitoramentos_antigos')";
+			
+				if ($conn->query($sql)===true) {
+ 					echo "sucesso segundo INSERT";
+					
+					$sql = "INSERT INTO trello_usuario(id_usuario,keyT,token) VALUES ('$id','$key','$token')";
+
+			
+					if ($conn->query($sql)===true) {
+ 						echo "sucesso  INSERT trello";
+ 						header("location:disponiveis.php");
+ 						
+					}else{
+						echo "failed  INSERT trello";
+					}
+
+
+				}else{
+ 					echo "failed segundo INSERT";
+				}
+
+
 			}else{
  				echo "failed primeiro INSERT";
 			}
 			
-			$sql = "INSERT INTO escavador_usuario (id_usuario,email,senha,antigas_movimentacoes) VALUES ('$id','$email','$senha','$monitoramentos_antigos')";
+
+
+
+
 			
-			if ($conn->query($sql)===true) {
- 				echo "sucesso segundo INSERT";
-			}else{
- 				echo "failed segundo INSERT";
-			}
-
-
-			$sql = "INSERT INTO trello_usuario(id_usuario,key,token) VALUES ('$id','$key','$token')";
-			
-			if ($conn->query($sql)===true) {
- 				echo "sucesso  INSERT trello";
- 					
-			}else{
-				echo "failed  INSERT trello";
-			}
-
-			header("location:disponiveis.php");
 		
 		}else{
 			$sql = " UPDATE escavador_usuario SET id_usuario='$id', email='$email', senha ='$senha' WHERE id_usuario ='$id' ";

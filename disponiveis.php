@@ -212,13 +212,15 @@ if ($cont <=0) {
                                     <!-- https://trello.com/app-key -->
                                     <input style="width: 300px" type="text" class="form-control" name="key_trello" id="key_trello" placeholder="Digite a key da sua conta Trello"/>
                                     <br>
-                                    <a style="font-size: 120%; color: grey;">Clique </a><a style="font-size: 120%;" target="_blank" href="https://trello.com/app-key">aqui</a><a style="font-size: 120%; color: grey;"> para resgatar sua Key. Você deve estar logado no trello para fazer isso. <br> Depois, copie a linha embaixo de "Chave:" e cole no campo acima</a>
+                                    <a style="font-size: 120%; color: grey;">Clique </a><a style="font-size: 120%;" target="_blank"  href="https://trello.com/app-key">aqui</a><a style="font-size: 120%; color: grey;"> para resgatar sua Key. Você deve estar logado no trello para fazer isso. <br> Depois, copie a linha embaixo de "Chave:" e cole no campo acima</a>
                                     <br>
+
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Token:</a>&nbsp;&nbsp;
                                     <!-- https://trello.com/1/authorize?expiration=never&name=Knivet&key=REPLACEWITHYOURKEY -->
                                     <input style="width: 300px" type="text" class="form-control" name="token_trello" id="token_trello" placeholder="Digite o token da sua conta Trello"/>
+                                   
                                     <br>
-                                    <a style="font-size: 120%; color: grey;">Preencha o campo Key acima e clique </a><a href="#" style="font-size: 120%; color: blue;">aqui</a><a style="font-size: 120%; color: grey;"> para resgatar seu token.<br>Depois, clique em permitir e copie a linha abaixo de "verification code" que irá aparecer na tela para o campo Token acima</a>
+                                    <a style="font-size: 120%; color: grey;">Preencha o campo Key acima e clique </a> <a " target="_blank"  href="https://trello.com/1/authorize?expiration=never&scope=read,write,account&response_type=token&name=Server%20Token&key=5fe0e4c8673fe9c3eb02c44e2d86c3e3" style="font-size: 120%; color: blue;">aqui</a><a style="font-size: 120%; color: grey;"> para resgatar seu token.<br>Depois, clique em permitir e copie a linha abaixo de "verification code" que irá aparecer na tela para o campo Token acima</a>
                                   </div>
                                   <br>
 
