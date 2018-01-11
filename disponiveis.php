@@ -219,7 +219,7 @@ if ($cont <=0) {
                                     <input style="width: 300px" type="text" class="form-control" name="token_trello" id="token_trello" placeholder="Digite o token da sua conta Trello"/>
 
                                     <br>
-                                    <a style="font-size: 120%; color: grey;">Preencha o campo Key acima e clique </a> <a target="_blank"  href="https://trello.com/1/authorize?key=b22ded8c79cd64a39679caaa0d509ddd&name=Pluga&callback_method=fragment&expiration=never&return_url=https://manage.pluga.co/auth/trello&scope=read,write" style="font-size: 120%; color: blue;">aqui</a><a style="font-size: 120%; color: grey;"> para resgatar seu token.<br>Depois, clique em permitir e copie a linha abaixo de "verification code" que irá aparecer na tela para o campo Token acima</a>
+                                    <a style="font-size: 120%; color: grey;">Preencha o campo Key acima e clique </a> <a target="_blank"  href="https://trello.com/1/authorize?expiration=never&scope=read,write,account&response_type=token&name=Knivet&key=a97f7f8ddbd99a156de10838b9b87f90" style="font-size: 120%; color: blue;">aqui</a><a style="font-size: 120%; color: grey;"> para resgatar seu token.<br>Depois, clique em permitir e copie a linha abaixo de "verification code" que irá aparecer na tela para o campo Token acima</a>
                                   </div>
                                   <br>
 
