@@ -37,22 +37,23 @@ if (condition) {
 	# code...
 }
 
+
+$from = " contato@knivet.com.br";
  
-$from = "morg.guilherme@gmail.com";
+$to = '$email'; // para aonde vai a mensagem
  
-$to = "morg.guilherme@gmail.com";
+$subject = "Bem vindo a Knivet"; // Assunto
  
-$subject = "Testando enviar email";
- 
-$message = "O correio do PHP funciona bem";
+$message = "Olá $usuario <br> <br> Bem vindo a Knivet! <br> <br> Juntos Juntos tornaremos seus dias de trabalho ainda mais produtivos. <br> <br> Chega de ficar preso em atividades manuais e morosas! Vamos automatizar o seu trabalho e tornar você um profissional mais completo! <br> <br> http://knivet.com.br/mvp/escavador/ <br> <br>" ;
  
 //$headers = "De:". $from;
-$headers =  'MIME-Version: 1.0' . "\r\n"; 
-$headers .= 'From: Knivet <morg.guilherme@gmail.com>' . "\r\n";
-$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n"; 
+$headers =  "MIME-Version: 1.0\n "; 
+$headers .= "Content-type: text/html; charset=iso-8859-1\n"; 
+$headers .= "From: $from\n";
+
  
 mail($to, $subject, $message, $headers);
- */
+  */
 
  $sql = "INSERT INTO usuario(email,senha,usuario,emailRec) VALUES ('$email','$senha','$usuario','$emailRec')";
  if ($conn->query($sql)===true) {
