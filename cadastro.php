@@ -63,7 +63,7 @@ mail($to, $subject, $message, $headers);
 	$_SESSION['nome'] = $usuario;
 
 
-	   $result =  $conn->query("SELECT * FROM usuario WHERE email = '$aux' ");
+	   $result =  $conn->query("SELECT * FROM usuario WHERE email = '$email' ");
        $cont = mysqli_num_rows($result);
          if ($cont <=0) {
            echo ("erro");
@@ -73,16 +73,27 @@ mail($to, $subject, $message, $headers);
                  while ($row=$result->fetch_assoc()) {
                     
                       $_SESSION['id_usuario']= $row['id'];
-                     
+                       $id = $_SESSION['id_usuario'];
+
+                       $sql = "INSERT INTO chamadas_feitas_temp(id_usuario,vl1,vl2,vl3,vl4,vl5,vl6,vl7) VALUES ('$id',0,0,0,0,0,0,0)";
+                        if ($conn->query($sql)===true) {
+                            echo "sucesso  chamadas_feitas_temp";
+                        
+                             $sql = "INSERT INTO horas_salvas_temp(id_usuario,vl1,vl2,vl3,vl4,vl5,vl6,vl7) VALUES ('$id',0,0,0,0,0,0,0)";
+                             if ($conn->query($sql)===true) {
+                                echo "sucesso horas_salvas_temp";
+                                header("location:resumo.php");
+                             }else{
+                                 echo "erro horas_salvas_temp";
+                            }
+
+                        }else{
+                            echo "erro chamadas_feitas_temp";
+                        }
+
                    }
              }
         }
-
-
-
-
-	header("location:resumo.php");
-
  }else{
  	echo "failed";
  }
