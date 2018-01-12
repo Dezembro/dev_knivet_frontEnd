@@ -23,7 +23,7 @@ if ($conn->connect_erro){
     echo "Erro ao conectar";
 }
 
-$id = $_SESSION['id'];
+$id = $_SESSION['id_usuario'];
 
 $result =  $conn->query("SELECT * FROM automacoes_ativas WHERE id_usuario = '$id' ");
 $cont = mysqli_num_rows($result);
@@ -112,6 +112,7 @@ if ($cont <=0) {
                     </li>
                     <li class="active-pro">
                          <a href="sair.php">
+
                             <i class="material-icons">remove_circle</i>
                             <p style="color: white;">Sair</p>
                         </a>
@@ -130,7 +131,7 @@ if ($cont <=0) {
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand"> Bem vindo <?php echo( $_SESSION['nome']);  ?>, <br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aqui estão todas as integrações da Knivet </a>
+                        <a class="navbar-brand">Bem vindo <?php echo( $_SESSION['nome']);  ?>, <br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aqui estão todas as integrações da Knivet </a>
                     </div>
                     <div class="collapse navbar-collapse">
 
@@ -172,7 +173,7 @@ if ($cont <=0) {
                                 <td>
                                     <div class="checkbox" >
                                         <label>
-                                            <input onclick="checkEscavador_trello()" id="escavador_trello_cb" type="checkbox" name="optionsCheckboxes" bgcolor=#27B9D2>
+                                            <input onclick="checkEscavador_trello()" action="ativar_escavador_trello.php" name="escavador_trello_cb" id="escavador_trello_cb" type="checkbox" name="optionsCheckboxes" bgcolor=#27B9D2>
                                         </label>
                                     </div>
                                 </td>
@@ -219,7 +220,7 @@ if ($cont <=0) {
                                     <input style="width: 300px" type="text" class="form-control" name="token_trello" id="token_trello" placeholder="Digite o token da sua conta Trello"/>
 
                                     <br>
-                                    <a style="font-size: 120%; color: grey;">Preencha o campo Key acima e clique </a> <a target="_blank"  href="https://trello.com/1/authorize?expiration=never&scope=read,write,account&response_type=token&name=Knivet&key=a97f7f8ddbd99a156de10838b9b87f90" style="font-size: 120%; color: blue;">aqui</a><a style="font-size: 120%; color: grey;"> para resgatar seu token.<br>Depois, clique em permitir e copie a linha abaixo de "verification code" que irá aparecer na tela para o campo Token acima</a>
+                                    <a style="font-size: 120%; color: grey;">Preencha o campo Key acima e clique </a> <a onclick="trelloKey()" href="#" style="font-size: 120%; color: blue;">aqui</a><a style="font-size: 120%; color: grey;"> para resgatar seu token.<br>Depois, clique em permitir e copie a linha abaixo de "verification code" que irá aparecer na tela para o campo Token acima</a>
                                   </div>
                                   <br>
 
@@ -326,6 +327,20 @@ if ($cont <=0) {
 
 <script>
 
+function trelloKey()
+{
+  var x = document.getElementById("key_trello").value;
+  var win = window.open('https://trello.com/1/authorize?expiration=never&scope=read,write,account&response_type=token&name=Knivet&key='+x, '_blank');
+  if (win)
+  {
+    win.focus();
+  }
+  else
+  {
+      alert('Please allow popups for this website');
+  }
+}
+
 function checkDigesto_trello()
 {
     var x = document.getElementById("digesto_trello_cb").checked
@@ -373,7 +388,9 @@ function trello1() {
       y.style.display = "none";
     }
 }
+
 //ACONTECE
+
 function checkEscavador_trello()
 {
     var x = document.getElementById("escavador_trello_cb").checked
