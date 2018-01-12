@@ -659,63 +659,63 @@ demo = {
         }
         if(dia == "Tuesday")
         {
-          seg = "Qua ("+dia1+"/"+mes1+")";
-          ter = "Qui ("+dia7+"/"+mes7+")";
-          qua = "Sex ("+dia6+"/"+mes6+")";
-          qui = "Sab ("+dia5+"/"+mes5+")";
-          sex = "Dom ("+dia4+"/"+mes4+")";
-          sab = "Seg ("+dia3+"/"+mes3+")";
-          dom = "Ter ("+dia2+"/"+mes2+")";
+          seg = "Qua ("+dia7+"/"+mes7+")";
+          ter = "Qui ("+dia6+"/"+mes6+")";
+          qua = "Sex ("+dia5+"/"+mes5+")";
+          qui = "Sab ("+dia4+"/"+mes4+")";
+          sex = "Dom ("+dia3+"/"+mes3+")";
+          sab = "Seg ("+dia2+"/"+mes2+")";
+          dom = "Ter ("+dia1+"/"+mes1+")";
         }
         if(dia == "Wednesday")
         {
-          seg = "Qui ("+dia2+"/"+mes2+")";
-          ter = "Sex ("+dia1+"/"+mes1+")";
-          qua = "Sab ("+dia7+"/"+mes7+")";
-          qui = "Dom ("+dia6+"/"+mes6+")";
-          sex = "Seg ("+dia5+"/"+mes5+")";
-          sab = "Ter ("+dia4+"/"+mes4+")";
-          dom = "Qua ("+dia3+"/"+mes3+")";
+          seg = "Qui ("+dia7+"/"+mes7+")";
+          ter = "Sex ("+dia6+"/"+mes6+")";
+          qua = "Sab ("+dia5+"/"+mes5+")";
+          qui = "Dom ("+dia4+"/"+mes4+")";
+          sex = "Seg ("+dia3+"/"+mes3+")";
+          sab = "Ter ("+dia2+"/"+mes2+")";
+          dom = "Qua ("+dia1+"/"+mes1+")";
         }
         if(dia == "Thursday")
         {
-          seg = "Sex ("+dia3+"/"+mes3+")";
-          ter = "Sab ("+dia2+"/"+mes2+")";
-          qua = "Dom ("+dia1+"/"+mes1+")";
-          qui = "Seg ("+dia7+"/"+mes7+")";
-          sex = "Ter ("+dia6+"/"+mes6+")";
-          sab = "Qua ("+dia5+"/"+mes5+")";
-          dom = "Qui ("+dia4+"/"+mes4+")";
+          seg = "Sex ("+dia7+"/"+mes7+")";
+          ter = "Sab ("+dia6+"/"+mes6+")";
+          qua = "Dom ("+dia5+"/"+mes5+")";
+          qui = "Seg ("+dia4+"/"+mes4+")";
+          sex = "Ter ("+dia3+"/"+mes3+")";
+          sab = "Qua ("+dia2+"/"+mes2+")";
+          dom = "Qui ("+dia1+"/"+mes1+")";
         }
         if(dia == "Friday")
         {
-          seg = "Sab ("+dia4+"/"+mes4+")";
-          ter = "Dom ("+dia3+"/"+mes3+")";
-          qua = "Seg ("+dia2+"/"+mes2+")";
-          qui = "Ter ("+dia1+"/"+mes1+")";
-          sex = "Qua ("+dia7+"/"+mes7+")";
-          sab = "Qui ("+dia6+"/"+mes6+")";
-          dom = "Sex ("+dia5+"/"+mes5+")";
+          seg = "Sab ("+dia7+"/"+mes7+")";
+          ter = "Dom ("+dia6+"/"+mes6+")";
+          qua = "Seg ("+dia5+"/"+mes5+")";
+          qui = "Ter ("+dia4+"/"+mes4+")";
+          sex = "Qua ("+dia3+"/"+mes3+")";
+          sab = "Qui ("+dia2+"/"+mes2+")";
+          dom = "Sex ("+dia1+"/"+mes1+")";
         }
         if(dia == "Saturday")
         {
-          seg = "Dom ("+dia5+"/"+mes5+")";
-          ter = "Seg ("+dia4+"/"+mes4+")";
-          qua = "Ter ("+dia3+"/"+mes3+")";
-          qui = "Qua ("+dia2+"/"+mes2+")";
-          sex = "Qui ("+dia1+"/"+mes1+")";
-          sab = "Sex ("+dia7+"/"+mes7+")";
-          dom = "Sab ("+dia6+"/"+mes6+")";
+          seg = "Dom ("+dia7+"/"+mes7+")";
+          ter = "Seg ("+dia6+"/"+mes6+")";
+          qua = "Ter ("+dia5+"/"+mes5+")";
+          qui = "Qua ("+dia4+"/"+mes4+")";
+          sex = "Qui ("+dia3+"/"+mes3+")";
+          sab = "Sex ("+dia2+"/"+mes2+")";
+          dom = "Sab ("+dia1+"/"+mes1+")";
         }
         if(dia == "Sunday")
         {
-          seg = "Seg ("+dia1+"/"+mes6+")";
-          ter = "Ter ("+dia2+"/"+mes5+")";
-          qua = "Qua ("+dia3+"/"+mes4+")";
-          qui = "Qui ("+dia4+"/"+mes3+")";
-          sex = "Sex ("+dia5+"/"+mes2+")";
-          sab = "Sab ("+dia6+"/"+mes1+")";
-          dom = "Dom ("+dia7+"/"+mes7+")";
+          seg = "Seg ("+dia7+"/"+mes7+")";
+          ter = "Ter ("+dia6+"/"+mes6+")";
+          qua = "Qua ("+dia5+"/"+mes5+")";
+          qui = "Qui ("+dia4+"/"+mes4+")";
+          sex = "Sex ("+dia3+"/"+mes3+")";
+          sab = "Sab ("+dia2+"/"+mes2+")";
+          dom = "Dom ("+dia1+"/"+mes1+")";
         }
 
         var vl1 = '<?php echo $vl1?>';
@@ -949,63 +949,63 @@ demo = {
         }
         if(dia == "Tuesday")
         {
-          seg = "Qua ("+dia1+"/"+mes1+")";
-          ter = "Qui ("+dia7+"/"+mes7+")";
-          qua = "Sex ("+dia6+"/"+mes6+")";
-          qui = "Sab ("+dia5+"/"+mes5+")";
-          sex = "Dom ("+dia4+"/"+mes4+")";
-          sab = "Seg ("+dia3+"/"+mes3+")";
-          dom = "Ter ("+dia2+"/"+mes2+")";
+          seg = "Qua ("+dia7+"/"+mes7+")";
+          ter = "Qui ("+dia6+"/"+mes6+")";
+          qua = "Sex ("+dia5+"/"+mes5+")";
+          qui = "Sab ("+dia4+"/"+mes4+")";
+          sex = "Dom ("+dia3+"/"+mes3+")";
+          sab = "Seg ("+dia2+"/"+mes2+")";
+          dom = "Ter ("+dia1+"/"+mes1+")";
         }
         if(dia == "Wednesday")
         {
-          seg = "Qui ("+dia2+"/"+mes2+")";
-          ter = "Sex ("+dia1+"/"+mes1+")";
-          qua = "Sab ("+dia7+"/"+mes7+")";
-          qui = "Dom ("+dia6+"/"+mes6+")";
-          sex = "Seg ("+dia5+"/"+mes5+")";
-          sab = "Ter ("+dia4+"/"+mes4+")";
-          dom = "Qua ("+dia3+"/"+mes3+")";
+          seg = "Qui ("+dia7+"/"+mes7+")";
+          ter = "Sex ("+dia6+"/"+mes6+")";
+          qua = "Sab ("+dia5+"/"+mes5+")";
+          qui = "Dom ("+dia4+"/"+mes4+")";
+          sex = "Seg ("+dia3+"/"+mes3+")";
+          sab = "Ter ("+dia2+"/"+mes2+")";
+          dom = "Qua ("+dia1+"/"+mes1+")";
         }
         if(dia == "Thursday")
         {
-          seg = "Sex ("+dia3+"/"+mes3+")";
-          ter = "Sab ("+dia2+"/"+mes2+")";
-          qua = "Dom ("+dia1+"/"+mes1+")";
-          qui = "Seg ("+dia7+"/"+mes7+")";
-          sex = "Ter ("+dia6+"/"+mes6+")";
-          sab = "Qua ("+dia5+"/"+mes5+")";
-          dom = "Qui ("+dia4+"/"+mes4+")";
+          seg = "Sex ("+dia7+"/"+mes7+")";
+          ter = "Sab ("+dia6+"/"+mes6+")";
+          qua = "Dom ("+dia5+"/"+mes5+")";
+          qui = "Seg ("+dia4+"/"+mes4+")";
+          sex = "Ter ("+dia3+"/"+mes3+")";
+          sab = "Qua ("+dia2+"/"+mes2+")";
+          dom = "Qui ("+dia1+"/"+mes1+")";
         }
         if(dia == "Friday")
         {
-          seg = "Sab ("+dia4+"/"+mes4+")";
-          ter = "Dom ("+dia3+"/"+mes3+")";
-          qua = "Seg ("+dia2+"/"+mes2+")";
-          qui = "Ter ("+dia1+"/"+mes1+")";
-          sex = "Qua ("+dia7+"/"+mes7+")";
-          sab = "Qui ("+dia6+"/"+mes6+")";
-          dom = "Sex ("+dia5+"/"+mes5+")";
+          seg = "Sab ("+dia7+"/"+mes7+")";
+          ter = "Dom ("+dia6+"/"+mes6+")";
+          qua = "Seg ("+dia5+"/"+mes5+")";
+          qui = "Ter ("+dia4+"/"+mes4+")";
+          sex = "Qua ("+dia3+"/"+mes3+")";
+          sab = "Qui ("+dia2+"/"+mes2+")";
+          dom = "Sex ("+dia1+"/"+mes1+")";
         }
         if(dia == "Saturday")
         {
-          seg = "Dom ("+dia5+"/"+mes5+")";
-          ter = "Seg ("+dia4+"/"+mes4+")";
-          qua = "Ter ("+dia3+"/"+mes3+")";
-          qui = "Qua ("+dia2+"/"+mes2+")";
-          sex = "Qui ("+dia1+"/"+mes1+")";
-          sab = "Sex ("+dia7+"/"+mes7+")";
-          dom = "Sab ("+dia6+"/"+mes6+")";
+          seg = "Dom ("+dia7+"/"+mes7+")";
+          ter = "Seg ("+dia6+"/"+mes6+")";
+          qua = "Ter ("+dia5+"/"+mes5+")";
+          qui = "Qua ("+dia4+"/"+mes4+")";
+          sex = "Qui ("+dia3+"/"+mes3+")";
+          sab = "Sex ("+dia2+"/"+mes2+")";
+          dom = "Sab ("+dia1+"/"+mes1+")";
         }
         if(dia == "Sunday")
         {
-          seg = "Seg ("+dia1+"/"+mes6+")";
-          ter = "Ter ("+dia2+"/"+mes5+")";
-          qua = "Qua ("+dia3+"/"+mes4+")";
-          qui = "Qui ("+dia4+"/"+mes3+")";
-          sex = "Sex ("+dia5+"/"+mes2+")";
-          sab = "Sab ("+dia6+"/"+mes1+")";
-          dom = "Dom ("+dia7+"/"+mes7+")";
+          seg = "Seg ("+dia7+"/"+mes7+")";
+          ter = "Ter ("+dia6+"/"+mes6+")";
+          qua = "Qua ("+dia5+"/"+mes5+")";
+          qui = "Qui ("+dia4+"/"+mes4+")";
+          sex = "Sex ("+dia3+"/"+mes3+")";
+          sab = "Sab ("+dia2+"/"+mes2+")";
+          dom = "Dom ("+dia1+"/"+mes1+")";
         }
 
         var vl1 = '<?php echo $vl1T?>';

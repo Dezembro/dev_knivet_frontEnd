@@ -40,6 +40,40 @@ if ($cont <=0) {
             {
 
               $escavador_trello = 1; // true
+              $result =  $conn->query("SELECT * FROM escavador_usuario WHERE id_usuario = '$id' ");
+
+
+
+              $cont = mysqli_num_rows($result);
+              if ($cont <=0) {
+                   echo ("erro");
+              }else{
+                  // echo "conectado";
+                  if ($cont == 1) {
+                      while ($row=$result->fetch_assoc()) {
+                        $emailEscavador = $row['email'];
+                        $senhaEscavador = $row['senha'];
+                      }
+                  }
+              }
+
+              $result =  $conn->query("SELECT * FROM trello_usuario WHERE id_usuario = '$id' ");
+
+
+
+              $cont = mysqli_num_rows($result);
+              if ($cont <=0) {
+                   echo ("erro");
+              }else{
+                  // echo "conectado";
+                  if ($cont == 1) {
+                      while ($row=$result->fetch_assoc()) {
+                        $keyTrello = $row['keyT'];
+                        $tokenTrello = $row['token'];
+                      }
+                  }
+              }
+
             }
             if($row['id_automacao'] == 1)
             {
@@ -48,7 +82,6 @@ if ($cont <=0) {
             }
     }
 }
-
  ?>
 
 
@@ -173,7 +206,7 @@ if ($cont <=0) {
                                 <td>
                                     <div class="checkbox" >
                                         <label>
-                                            <input onclick="checkEscavador_trello()" action="ativar_escavador_trello.php" name="escavador_trello_cb" id="escavador_trello_cb" type="checkbox" name="optionsCheckboxes" bgcolor=#27B9D2>
+                                            <input value="checkado" onclick="checkEscavador_trello()" action="ativar_escavador_trello.php" name="escavador_trello_cb" id="escavador_trello_cb" type="checkbox" name="optionsCheckboxes" bgcolor=#27B9D2>
                                         </label>
                                     </div>
                                 </td>
@@ -185,13 +218,18 @@ if ($cont <=0) {
 
                                   </div>
                               </div>
+
+
+
                               <form class="card-footer" action="escavador_enviar_dados.php" id="escavador_trello" style="display: none" method="post">
                                     <br>
-                                    <a href="#" onclick="escavador1()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Escavador </a>
+                                    <!-- <a href="#" onclick="escavador1()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Escavador </a>
                                     <i class="material-icons" style="font-size: 150%; color: grey;">autorenew</i>
-                                    <a href="#" onclick="trello2()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Trello</a>
+                                    <a href="#" onclick="trello2()" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Trello</a> -->
                                     <br>
-                                  <div class="stats" style="display: none" id="escavador">
+                                  <div class="stats" style="display: block" id="escavador">
+                                    <a href="#" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Escavador </a>
+                                    <br>
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Email:</a>&nbsp;&nbsp;
                                     <input style="width: 300px" type="text" class="form-control" name="email_escavador" id="email_escavador" placeholder="Digite o email da sua conta Escavador"/>
                                     <br>
@@ -206,8 +244,11 @@ if ($cont <=0) {
 
                                 <td bgcolor="#27B9D2">Enviar para o trello monitoramentos anteriores a Knivet? </td>
 
-                                  </div>
-                                  <div class="stats" style="display: none" id="trello1">
+                                  <!-- </div>
+                                  <div class="stats" style="display: none" id="trello1"> -->
+                                    <br><br><br>
+                                    <a href="#" style="width: 70px; height: 70px; padding: 10px 16px; border-radius: 35px; font-size: 24px; line-height: 1.33; font-size: 150%; color: grey; background-color: #e2e2e2">Trello</a>
+                                    <br>
                                     <i class="material-icons"></i><a style="font-size: 150%; color: grey;">Key:</a>&nbsp;&nbsp;
                                     <!-- https://trello.com/app-key -->
                                     <input style="width: 300px" type="text" class="form-control" name="key_trello" id="key_trello" placeholder="Digite a key da sua conta Trello"/>
@@ -241,6 +282,19 @@ if ($cont <=0) {
                             {
                               var esc_tre_C = document.getElementById("escavador_trello_cb");
                               esc_tre_C.checked = true;
+                              var email_escavador = '<?php echo($emailEscavador); ?>';
+                              var senha_escavador = '<?php echo($senhaEscavador); ?>';
+                              var keyT = '<?php echo($keyTrello); ?>';
+                              var tokenT = '<?php echo($tokenTrello); ?>';
+                              console.log(email_escavador);
+                              console.log(senha_escavador);
+                              console.log(keyT);
+                              console.log(tokenT);
+                              document.getElementById("senha_escavador").value = senha_escavador;
+                              document.getElementById("email_escavador").value = email_escavador;
+                              document.getElementById("key_trello").value = keyT;
+                              document.getElementById("token_trello").value = tokenT;
+
                               checkEscavador_trello();
                             }
                             if(digesto_trello==1)
@@ -390,6 +444,8 @@ function trello1() {
 }
 
 //ACONTECE
+
+
 
 function checkEscavador_trello()
 {
