@@ -14,7 +14,7 @@ if (!($_SESSION['logado'])) {
 
 ?>
 
-<?php 
+<?php
 //  $conecta = mysql_connect("localhost", "MoorG", "AnnaBeth10");
  // $conn = new  mysqli("localhost", "root","","projeto_html");
 	$conn = new  mysqli("mysql762.umbler.com:41890","knivet","knivet2017","knivet");
@@ -29,7 +29,6 @@ $senha = $_POST['senha_escavador'];
 $token = $_POST['token_trello'];
 $key = $_POST['key_trello'];
 $id = $_SESSION['id_usuario'];
-
 $token = trim($token);
 $key = trim($key);
 
@@ -42,7 +41,7 @@ if(isset($_POST['monitoramentos_antigos']))
 }
 else
 {
-  $monitoramentos_antigos = 0;  
+  $monitoramentos_antigos = 0;
 }
 		$id = $_SESSION['id_usuario'];
 		$id_automacao = 0;
@@ -54,22 +53,21 @@ else
 
 		$cont = mysqli_num_rows($result);
 		if ($cont <=0) {
-			
+
 			$sql = " INSERT INTO automacoes_ativas(id_usuario,id_automacao) VALUES ('$id','$id_automacao') ";
 			if ($conn->query($sql)===true) {
  				echo "sucesso primerio INSERT";
 
  				$sql = "INSERT INTO escavador_usuario(id_usuario,email,senha,antigas_movimentacoes) VALUES ('$id','$email','$senha','$monitoramentos_antigos')";
-			
+
 				if ($conn->query($sql)===true) {
  					echo "sucesso segundo INSERT";
-					
+
 					$sql = "INSERT INTO trello_usuario(id_usuario,keyT,token) VALUES ('$id','$key','$token')";
 
-			
+
 					if ($conn->query($sql)===true) {
  						echo "sucesso  INSERT trello";
- 						
 
 						$result =  $conn->query("SELECT * FROM usuario WHERE id = '$id' ") ;
 
@@ -101,12 +99,14 @@ else
 
  									}else{
  										echo "erro UPDATE usuario";
- 									}		
+ 									}
 								}
 							}
 						}
 
- 						
+
+ 						header("location:disponiveis.php");
+
 					}else{
 						echo "failed  INSERT trello";
 					}
@@ -120,19 +120,19 @@ else
 			}else{
  				echo "failed primeiro INSERT";
 			}
-			
 
 
 
 
-			
-		
+
+
+
 		}else{
 			$sql = " UPDATE escavador_usuario SET id_usuario='$id', email='$email', senha ='$senha' WHERE id_usuario ='$id' ";
 
 			if ($conn->query($sql)===true) {
  				echo "sucesso";
- 				
+
  				$sql = "INSERT INTO trello_usuario(id_usuario,keyT,token) VALUES ('$id','$key','$token')";
 
 				if ($conn->query($sql)===true) {
@@ -143,12 +143,12 @@ else
 					$sql = " UPDATE trello_usuario SET id_usuario='$id', keyT='$key', token ='$token' WHERE id_usuario ='$id' ";
 					if ($conn->query($sql)===true) {
 
-						header("location:resumo.php");
+							header("location:resumo.php");
 					}else{
 
 						echo "failed  UPDATE trello";
 					}
-					
+
 
 				}
 
