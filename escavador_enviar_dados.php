@@ -33,7 +33,6 @@ $id = $_SESSION['id_usuario'];
 $token = trim($token);
 $key = trim($key);
 
-print($token);
 
 
 if(isset($_POST['monitoramentos_antigos']))

@@ -213,7 +213,7 @@ if (!($_SESSION['logado'])) {
                                                         $id_automacoes[] = $row['id_automacao'];
                                                 }
                                             }
-                                            $id_automacao = $id_automacoes;
+                                            $_SESSION['id_automacao'] = $id_automacoes;
 
 
                                             $result5 =  $conn->query("SELECT * FROM escavador_usuario WHERE id_usuario = '$id_usuario' ");
@@ -413,7 +413,6 @@ if (!($_SESSION['logado'])) {
 
 <script>
 $(document).ready(function() {
-  tabela();
   var primeira = '<?php echo($primeiraAuto); ?>';
   console.log(primeira);
   if(primeira == 1)
@@ -1222,10 +1221,8 @@ demo = {
 <script>
 function tabela()
 {
-  console.log("Tabela");
   var divToPrint=document.getElementById("tabelaAut");
   var js_array =<?php echo json_encode($id_automacao)?>;
-  console.log(js_array);
   var html;
   var i=0;
   var lengthA = js_array.length;
