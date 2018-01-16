@@ -29,6 +29,10 @@ $senha = $_POST['senha_escavador'];
 $token = $_POST['token_trello'];
 $key = $_POST['key_trello'];
 $id = $_SESSION['id_usuario'];
+
+$token = trim($token);
+$key = trim($key);
+
 print($token);
 
 
@@ -93,7 +97,7 @@ else
 
 									if ($conn->query($sql)===true) {
  										echo "sucesso UPDATE usuario";
- 										header("location:disponiveis.php");
+ 										header("location:resumo.php");
 
  									}else{
  										echo "erro UPDATE usuario";
@@ -139,7 +143,7 @@ else
 					$sql = " UPDATE trello_usuario SET id_usuario='$id', keyT='$key', token ='$token' WHERE id_usuario ='$id' ";
 					if ($conn->query($sql)===true) {
 
-						header("location:disponiveis.php");
+						header("location:resumo.php");
 					}else{
 
 						echo "failed  UPDATE trello";
