@@ -194,7 +194,7 @@ if (!($_SESSION['logado'])) {
                                                 }
                                             }
 
-                                            $result4 =  $conn->query("SELECT * FROM automacoes_ativas WHERE id_usuario = '$id_usuario' ");
+                                            $result4 =  $conn->query("SELECT * FROM automacoes_ativas WHERE id_usuario = '18' ");
 
 
 
@@ -413,16 +413,15 @@ if (!($_SESSION['logado'])) {
 
 <script>
 $(document).ready(function() {
+  tabela();
   var primeira = '<?php echo($primeiraAuto); ?>';
-  console.log("Primeira?");
   console.log(primeira);
   if(primeira == 1)
   {
     var divToPrint=document.getElementById("cardPrimeira");
-    html = "<div class=\"col-lg-12 col-md-12\"><div class=\"card\" style=\"background-color: rgba(0,0,0,0);\"><div class=\"card-header\" data-background-color=\"blue\"><center><h4 class=\"title\">Você ainda não possui automatizações ativas. <br> <a href=\"disponiveis.php\" style=\"color: #097687\">clique aqui<a> e configure sua primeira automatização!</h4><center></div></div></div>";
+    html = "<div class=\"col-lg-12 col-md-12\"><div class=\"card\" style=\"background-color: rgba(0,0,0,0);\"><div class=\"card-header\" data-background-color=\"blue\"><center><h4 class=\"title\">Você ainda não possui automatizações ativas. <br> <a href=\"disponiveis.php\" style=\"color: #9B12AE\">clique aqui<a> e configure sua primeira automatização!</h4><center></div></div></div>";
     divToPrint.innerHTML = html;
   }
-  tabela();
   });
 </script>
 
@@ -1230,8 +1229,7 @@ function tabela()
   var html;
   var i=0;
   var lengthA = js_array.length;
-  console.log(lengthA);
-  for(i=0;i<lengthA;i++)
+  for(i;i<lengthA;i++)
   {
     var input;
     var output;
