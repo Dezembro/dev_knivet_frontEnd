@@ -137,7 +137,7 @@ else
 
 				if ($conn->query($sql)===true) {
  					echo "sucesso  INSERT trello";
- 					header("location:disponiveis.php");
+ 					header("location:resumo.php");
 				}else{
  					echo "failed  INSERT trello";
 					$sql = " UPDATE trello_usuario SET id_usuario='$id', keyT='$key', token ='$token' WHERE id_usuario ='$id' ";
