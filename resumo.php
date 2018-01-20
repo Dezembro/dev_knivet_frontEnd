@@ -8,7 +8,7 @@
 
 if (!($_SESSION['logado'])) {
 
-   header("location:index.html");
+   header("location:index.php");
 }
 //header("location:index.html");
 //Warning: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\Knivet\resumo.php:86) in C:\xampp\htdocs\Knivet\resumo.php on line 587
