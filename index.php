@@ -36,7 +36,7 @@ if (!($_SESSION['logado'])) {
 <title>Knivet - Seja mais produtivo</title>
 <!-- <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css"> -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
-<!-- <script type="text/javascript" src="js/modernizr.custom.js"></script> -->
+<script type="text/javascript" src="js/modernizr.custom.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -89,7 +89,7 @@ if (!($_SESSION['logado'])) {
 
                         <div class="form-group">
                       <!--     <button type="submit" style="background-color: rgba(88,155,152,0.9)" class="btn btn-primary btn-block">Entrar</button>-->
-                                        <input class="btn btn-primary btn-block" type="submit" style="background-color: rgba(88,155,152,0.9)" class="btn btn-primary btn-block" value="Entrar"> <!-- fundo button -->
+                        <input class="btn btn-primary btn-block" type="submit" style="background-color: rgba(88,155,152,0.9)" class="btn btn-primary btn-block" value="Entrar"> <!-- fundo button -->
 
                         </div>
                         <div class="help-block text-lefet"><a href="" style="color: white;">Esqueci a senha</a></div>
@@ -194,13 +194,13 @@ if (!($_SESSION['logado'])) {
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<!-- <script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/SmoothScroll.js"></script>
 <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" src="js/jquery.isotope.js"></script> -->
-<!-- <script type="text/javascript" src="js/jquery.parallax.js"></script> -->
-<!-- <script type="text/javascript" src="js/jqBootstrapValidation.js"></script> -->
-<!-- <script type="text/javascript" src="js/contact_me.js"></script> -->
+<script type="text/javascript" src="js/jquery.isotope.js"></script>
+<script type="text/javascript" src="js/jquery.parallax.js"></script>
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="js/contact_me.js"></script>
 
 <!-- Javascripts
     ================================================== -->
