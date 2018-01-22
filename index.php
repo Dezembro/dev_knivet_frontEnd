@@ -6,7 +6,7 @@
 
 <?php endif;
 
-if (!($_SESSION['logado'])) {
+if (($_SESSION['logado'])) {
 
    header("location:resumo.php");
 }
