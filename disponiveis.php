@@ -115,7 +115,7 @@ if ($cont <=0) {
         <div class="sidebar" data-color="blue" data-image="img/sidebar-1.jpg" style="background-color: rgb(25,25,25);">
 
             <div class="logo" style="background-color: rgb(25,25,25);">
-            <a href="index.html"><img src="img/logo.png"></a>
+            <a href="index.php"><img src="img/logo.png"></a>
             </div>
             <div class="sidebar-wrapper" style="background-color: rgb(25,25,25);">
                 <ul class="nav">
