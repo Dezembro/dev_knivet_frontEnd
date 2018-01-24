@@ -130,7 +130,7 @@ if (($_SESSION['logado'])) {
           <br><br>
           <p style="font-size: 35px" class="intro-text">Integre suas ferramentas e seja mais produtivo!
           <br>
-          <a href="#about" style="background-color: #D93A49;" class="btn btn-default page-scroll">Cadastre-se e experimente grátis</a>
+          <a href="cadastro.html" style="background-color: #D93A49;" class="btn btn-default page-scroll">Cadastre-se e experimente grátis</a>
           </p>
 
         </div>
